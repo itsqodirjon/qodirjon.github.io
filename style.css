@@ -1,7 +1,7 @@
-/* Smooth Scroll - Sahifa bo'ylab sekin va silliq harakatlanish */
+/* Smooth Scroll - Sekin va silliq tushish */
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* Header to'sib qo'ymasligi uchun */
+    scroll-padding-top: 80px;
 }
 
 * {
@@ -250,7 +250,7 @@ h2 {
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    overflow: hidden; /* Blokdan chiqib ketishining oldini oladi */
+    overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -283,7 +283,7 @@ h2 {
 
 .cert-info {
     flex-grow: 1;
-    min-width: 0; /* Matn toshib ketishiga yo'l qo'ymaydi */
+    min-width: 0;
 }
 
 .cert-info h3 {
@@ -317,7 +317,7 @@ h2 {
     transform: translate(2px, -2px);
 }
 
-/* Coming Soon Badji - Tartibli va blok ichida joylashuv */
+/* Coming Soon Badji - Ixcham va blok ichida */
 .cert-card.cert-pending {
     border-style: dashed;
     border-color: rgba(245, 158, 11, 0.3);
@@ -329,7 +329,7 @@ h2 {
 }
 
 .badge-coming-soon {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 700;
     color: #f59e0b;
     background: rgba(245, 158, 11, 0.12);
