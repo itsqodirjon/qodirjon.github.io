@@ -18,6 +18,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-main);
     color: var(--text-primary);
@@ -41,7 +45,7 @@ h2 {
     font-size: 1.8rem;
     font-weight: 800;
     color: var(--text-primary);
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     letter-spacing: -0.5px;
     display: flex;
     align-items: center;
@@ -55,42 +59,174 @@ h2::before {
 }
 
 /* ============================================================
-   2. HERO HEADER SECTION
+   2. FLOATING NAVIGATION BAR (O'ng tepaga tartiblangan)
+   ============================================================ */
+.navbar-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 28px;
+    background: rgba(13, 19, 34, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 50px;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #f8fafc;
+    font-family: var(--font-mono);
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--accent-cyan);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-btn {
+    position: relative;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+}
+
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(129, 140, 248, 0.2));
+    border-radius: 20px;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: -1;
+}
+
+.nav-btn:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+    transform: translateY(-2px);
+}
+
+.nav-btn:hover::before {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+.contact-btn {
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: var(--accent-cyan);
+}
+
+.contact-btn:hover {
+    background: var(--accent-cyan);
+    color: #080a0f !important;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.8);
+}
+
+/* ============================================================
+   3. HERO SECTION & DUMALOQ HOVER AVATAR
    ============================================================ */
 .hero {
     text-align: center;
-    padding: 80px 20px 40px;
+    padding: 150px 20px 40px;
+}
+
+.avatar-wrapper {
     position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-avatar {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    margin: 0 auto 20px;
-    border: 2px solid var(--accent-cyan);
-    box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
     object-fit: cover;
+    z-index: 2;
+    border: 2px solid rgba(56, 189, 248, 0.5);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.avatar-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    padding: 3px;
+    background: conic-gradient(from 0deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink), var(--accent-cyan));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.4;
+    transition: all 0.6s ease;
+    animation: spinRing 6s linear infinite;
+}
+
+@keyframes spinRing {
+    100% { transform: rotate(360deg); }
+}
+
+.avatar-wrapper:hover .hero-avatar {
+    transform: scale(1.08) rotate(3deg);
+    border-color: var(--accent-cyan);
+    box-shadow: 
+        0 0 35px rgba(56, 189, 248, 0.8),
+        inset 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+.avatar-wrapper:hover::before {
+    opacity: 1;
+    inset: -12px;
+    animation: spinRing 2s linear infinite;
+    filter: drop-shadow(0 0 12px #38bdf8);
 }
 
 .hero h1 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 800;
     background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .hero p {
     color: var(--accent-purple);
     font-family: var(--font-mono);
-    font-size: 1.1rem;
-    margin-bottom: 20px;
+    font-size: 1.05rem;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 /* ============================================================
-   3. TECHNICAL SKILLS BADGES (2s Holographic Glow Spin)
+   4. TECHNICAL SKILLS BADGES (2s Holographic Glow Spin)
    ============================================================ */
 .skills-grid {
     display: flex;
@@ -177,7 +313,7 @@ h2::before {
 }
 
 /* ============================================================
-   4. EDUCATION TIMELINE (2s Smooth 3D Icon Flip)
+   5. EDUCATION TIMELINE (2s Smooth 3D Icon Flip)
    ============================================================ */
 .timeline {
     display: flex;
@@ -272,7 +408,7 @@ h2::before {
 }
 
 /* ============================================================
-   5. CERTIFICATES (Futuristic Lazer Beam Scan)
+   6. CERTIFICATES (Futuristic Lazer Beam Scan)
    ============================================================ */
 .cert-grid {
     display: grid;
@@ -385,10 +521,121 @@ h2::before {
 }
 
 /* ============================================================
-   6. RESPONSIVE DESIGN (MOBIL SHAKLI)
+   7. FOOTER & CENTERED SOCIAL ICONS
+   ============================================================ */
+.footer-container {
+    width: 100%;
+    padding: 60px 20px 40px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(56, 189, 248, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-text {
+    color: #64748b;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-btn {
+    position: relative;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: #0d1322;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    color: var(--accent-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    text-decoration: none;
+    z-index: 1;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.social-btn::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: scale(0.8);
+}
+
+.social-btn:hover {
+    color: #080a0f;
+    background: var(--accent-cyan);
+    transform: translateY(-8px) scale(1.15);
+    box-shadow: 
+        0 12px 25px -5px rgba(56, 189, 248, 0.6),
+        0 0 30px rgba(129, 140, 248, 0.5);
+}
+
+.social-btn:hover::after {
+    opacity: 1;
+    transform: scale(1.25);
+    filter: blur(8px);
+}
+
+.social-btn i {
+    transition: transform 0.4s ease;
+}
+
+.social-btn:hover i {
+    transform: scale(1.2) rotate(360deg);
+}
+
+/* ============================================================
+   8. RESPONSIVE DESIGN (Mobil moslashuvchanlik)
    ============================================================ */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.1rem; }
-    .timeline-item { flex-direction: column; align-items: flex-start; }
-    .skills-grid { justify-content: center; }
+    .navbar-container {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px;
+        border-radius: 20px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .hero {
+        padding-top: 200px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .skills-grid {
+        justify-content: center;
+    }
 }
