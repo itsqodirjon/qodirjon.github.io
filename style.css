@@ -1,15 +1,17 @@
 /* ============================================================
-   1. GLOBAL STYLES & FUTURISTIC THEME VARIABLES
+   1. GLOBAL STYLES & NEW TYPOGRAPHY
    ============================================================ */
 :root {
     --bg-main: #080d1a;
     --bg-card: rgba(13, 19, 34, 0.85);
     --accent-cyan: #38bdf8;
-    --accent-purple: #818cf8;
+    --accent-purple: #a855f7;
+    --accent-emerald: #10b981;
     --accent-pink: #f43f5e;
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
-    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'Fira Code', monospace;
 }
 
 * {
@@ -25,12 +27,12 @@ html {
 body {
     background-color: var(--bg-main);
     color: var(--text-primary);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: var(--font-sans);
     line-height: 1.6;
     overflow-x: hidden;
     background-image: 
         radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 85% 85%, rgba(129, 140, 248, 0.08) 0%, transparent 40%);
+        radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
     background-attachment: fixed;
 }
 
@@ -58,7 +60,7 @@ h2::before {
 }
 
 /* ============================================================
-   2. FLOATING NAVIGATION BAR (O'ng tepaga tartiblangan & Glassmorphism)
+   2. FLOATING NAVIGATION BAR & EXTRAORDINARY NAV BUTTON HOVER
    ============================================================ */
 header.navbar-container {
     position: fixed !important;
@@ -71,9 +73,9 @@ header.navbar-container {
     justify-content: space-between !important;
     align-items: center !important;
     padding: 12px 28px !important;
-    background: rgba(13, 19, 34, 0.75) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
+    background: rgba(13, 19, 34, 0.8) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
     border: 1px solid rgba(56, 189, 248, 0.25) !important;
     border-radius: 50px !important;
     z-index: 9999 !important;
@@ -97,7 +99,7 @@ header.navbar-container {
     gap: 10px !important;
 }
 
-/* Navigatsiya tugmalari va Neon Cyber Pill hover effekti */
+/* Navigatsiya Tugmalari - Unikal Holografik Hover Effekti */
 .nav-links a.nav-btn {
     position: relative !important;
     text-decoration: none !important;
@@ -107,36 +109,53 @@ header.navbar-container {
     padding: 8px 18px !important;
     border-radius: 20px !important;
     background: transparent !important;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
     display: inline-block !important;
     border: 1px solid transparent !important;
     overflow: hidden !important;
+    z-index: 1 !important;
 }
 
 .nav-links a.nav-btn::before {
     content: '' !important;
     position: absolute !important;
-    inset: 0 !important;
-    background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(129, 140, 248, 0.2)) !important;
-    border-radius: 20px !important;
-    opacity: 0 !important;
-    transform: scale(0.6) !important;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    bottom: -100% !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(0deg, rgba(56, 189, 248, 0.3) 0%, transparent 100%) !important;
+    transition: all 0.4s ease !important;
     z-index: -1 !important;
+}
+
+.nav-links a.nav-btn::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) scaleX(0) !important;
+    width: 80% !important;
+    height: 2px !important;
+    background: var(--accent-cyan) !important;
+    box-shadow: 0 0 10px var(--accent-cyan) !important;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 .nav-links a.nav-btn:hover {
     color: #ffffff !important;
+    transform: translateY(-4px) !important;
     text-shadow: 0 0 10px rgba(56, 189, 248, 0.8) !important;
-    transform: translateY(-2px) !important;
 }
 
 .nav-links a.nav-btn:hover::before {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4) !important;
+    bottom: 0 !important;
 }
 
+.nav-links a.nav-btn:hover::after {
+    transform: translateX(-50%) scaleX(1) !important;
+}
+
+/* Contact Tugmasi */
 .nav-links a.contact-btn {
     border: 1px solid var(--accent-cyan) !important;
     color: var(--accent-cyan) !important;
@@ -228,7 +247,7 @@ header.navbar-container {
 }
 
 /* ============================================================
-   4. TECHNICAL SKILLS BADGES (2s Holographic Glow Spin)
+   4. TECHNICAL SKILLS BADGES
    ============================================================ */
 .skills-grid {
     display: flex;
@@ -291,7 +310,7 @@ header.navbar-container {
     border-color: transparent;
     box-shadow: 
         0 10px 25px -5px rgba(56, 189, 248, 0.4),
-        0 0 15px rgba(129, 140, 248, 0.3);
+        0 0 15px rgba(168, 85, 247, 0.3);
 }
 
 .badge:hover::before {
@@ -315,7 +334,7 @@ header.navbar-container {
 }
 
 /* ============================================================
-   5. EDUCATION TIMELINE (2s Smooth 3D Icon Flip)
+   5. EDUCATION TIMELINE
    ============================================================ */
 .timeline {
     display: flex;
@@ -348,7 +367,7 @@ header.navbar-container {
         90deg,
         transparent,
         rgba(56, 189, 248, 0.12),
-        rgba(129, 140, 248, 0.15),
+        rgba(168, 85, 247, 0.15),
         transparent
     );
     transition: left 0.8s ease;
@@ -361,7 +380,7 @@ header.navbar-container {
     background: #111a2e;
     box-shadow: 
         -5px 10px 30px -5px rgba(56, 189, 248, 0.3),
-        0 0 20px rgba(129, 140, 248, 0.2);
+        0 0 20px rgba(168, 85, 247, 0.2);
 }
 
 .timeline-item:hover::before {
@@ -380,7 +399,6 @@ header.navbar-container {
     justify-content: center;
     font-size: 1.25rem;
     flex-shrink: 0;
-    perspective: 1000px;
     transition: all 2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -397,7 +415,6 @@ header.navbar-container {
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 3px;
-    transition: color 0.3s ease;
 }
 
 .timeline-item:hover .timeline-content h3 {
@@ -410,7 +427,7 @@ header.navbar-container {
 }
 
 /* ============================================================
-   6. CERTIFICATES (Futuristic Laser Beam Scan)
+   6. CERTIFICATES - INDIVIDUAL CUSTOM HOVER COLORS
    ============================================================ */
 .cert-grid {
     display: grid;
@@ -422,7 +439,7 @@ header.navbar-container {
     position: relative;
     background: rgba(13, 19, 34, 0.75);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 28px 24px;
     border-radius: 20px;
     overflow: hidden;
@@ -439,25 +456,86 @@ header.navbar-container {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        180deg,
-        transparent 0%,
-        rgba(56, 189, 248, 0.05) 60%,
-        rgba(56, 189, 248, 0.5) 98%,
-        var(--accent-cyan) 100%
-    );
-    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.8);
     opacity: 0;
     pointer-events: none;
     z-index: 2;
 }
 
-.cert-card:hover {
+.cert-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --- 1-Sertifikat: CYAN (Moviy Nur) --- */
+.cert-cyan .cert-scan-beam {
+    background: linear-gradient(180deg, transparent 0%, rgba(56, 189, 248, 0.05) 60%, rgba(56, 189, 248, 0.6) 98%, #38bdf8 100%);
+    box-shadow: 0 4px 15px #38bdf8;
+}
+.cert-cyan .cert-badge {
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: #38bdf8;
+}
+.cert-cyan:hover {
     transform: translateY(-8px) scale(1.02);
-    border-color: rgba(56, 189, 248, 0.7);
-    box-shadow: 
-        0 20px 40px -15px rgba(8, 10, 15, 0.8),
-        0 0 30px rgba(56, 189, 248, 0.3);
+    border-color: #38bdf8;
+    box-shadow: 0 15px 35px -10px rgba(56, 189, 248, 0.4);
+}
+.cert-cyan:hover .cert-badge {
+    background: #38bdf8;
+    color: #080a0f;
+    box-shadow: 0 0 25px #38bdf8;
+}
+
+/* --- 2-Sertifikat: PURPLE (Binafsha Nur) --- */
+.cert-purple .cert-scan-beam {
+    background: linear-gradient(180deg, transparent 0%, rgba(168, 85, 247, 0.05) 60%, rgba(168, 85, 247, 0.6) 98%, #a855f7 100%);
+    box-shadow: 0 4px 15px #a855f7;
+}
+.cert-purple .cert-badge {
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    color: #a855f7;
+}
+.cert-purple:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: #a855f7;
+    box-shadow: 0 15px 35px -10px rgba(168, 85, 247, 0.4);
+}
+.cert-purple:hover .cert-badge {
+    background: #a855f7;
+    color: #080a0f;
+    box-shadow: 0 0 25px #a855f7;
+}
+
+/* --- 3-Sertifikat: EMERALD (Yashil Zumrad Nur) --- */
+.cert-emerald .cert-scan-beam {
+    background: linear-gradient(180deg, transparent 0%, rgba(16, 185, 129, 0.05) 60%, rgba(16, 185, 129, 0.6) 98%, #10b981 100%);
+    box-shadow: 0 4px 15px #10b981;
+}
+.cert-emerald .cert-badge {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #10b981;
+}
+.cert-emerald:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: #10b981;
+    box-shadow: 0 15px 35px -10px rgba(16, 185, 129, 0.4);
+}
+.cert-emerald:hover .cert-badge {
+    background: #10b981;
+    color: #080a0f;
+    box-shadow: 0 0 25px #10b981;
 }
 
 .cert-card:hover .cert-scan-beam {
@@ -470,36 +548,12 @@ header.navbar-container {
     100% { top: 100%; }
 }
 
-.cert-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: rgba(56, 189, 248, 0.08);
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    color: var(--accent-cyan);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.cert-card:hover .cert-badge {
-    background: var(--accent-cyan);
-    color: #080a0f;
-    transform: scale(1.15) rotate(10deg);
-    box-shadow: 0 0 25px rgba(56, 189, 248, 0.9);
-}
-
 .cert-issuer {
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--accent-purple);
+    color: var(--text-secondary);
     display: block;
     margin-bottom: 8px;
 }
@@ -511,11 +565,6 @@ header.navbar-container {
     margin-bottom: 6px;
 }
 
-.cert-card:hover .cert-content h3 {
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
-}
-
 .cert-date {
     font-size: 0.88rem;
     color: #64748b;
@@ -523,7 +572,7 @@ header.navbar-container {
 }
 
 /* ============================================================
-   7. FOOTER & CENTERED SOCIAL ICONS (Nodir Holographic Ripple)
+   7. FOOTER & CENTERED SOCIAL ICONS
    ============================================================ */
 footer.footer-container {
     width: 100% !important;
@@ -561,7 +610,6 @@ footer.footer-container {
     gap: 20px !important;
 }
 
-/* Social Ikonka Tugmalari */
 .social-links a.social-btn {
     position: relative !important;
     width: 55px !important;
@@ -579,14 +627,13 @@ footer.footer-container {
     transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-/* Footer Icon Hover Effekti */
 .social-links a.social-btn:hover {
     color: #080a0f !important;
     background: var(--accent-cyan) !important;
     transform: translateY(-8px) scale(1.15) !important;
     box-shadow: 
         0 12px 25px -5px rgba(56, 189, 248, 0.6),
-        0 0 30px rgba(129, 140, 248, 0.5) !important;
+        0 0 30px rgba(168, 85, 247, 0.5) !important;
 }
 
 .social-links a.social-btn i {
@@ -598,7 +645,7 @@ footer.footer-container {
 }
 
 /* ============================================================
-   8. RESPONSIVE DESIGN (Mobil qurilmalar uchun)
+   8. RESPONSIVE DESIGN
    ============================================================ */
 @media (max-width: 768px) {
     header.navbar-container {
