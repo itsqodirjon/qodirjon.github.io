@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qodirjon | DevOps Engineer Portfolio</title>
     
-    <!-- Ultra-modern Google Fonts (Plus Jakarta Sans & Fira Code) -->
+    <!-- Google Fonts: Plus Jakarta Sans va Fira Code -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,12 +13,24 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Style CSS (Keshni to'g'rilash uchun v=2 qoshildi) -->
-    <link rel="stylesheet" href="style.css?v=2">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css?v=3.0">
 </head>
 <body>
 
-    <!-- UNIKAL FLOATING NAVBAR -->
+    <!-- SUZUVCHI DEVOPS DOCKER VA PENGUIN ANIMATSIYA FONLARI -->
+    <div class="devops-bg-canvas" id="floatingBg">
+        <div class="floating-item float-1"><i class="fa-brands fa-docker"></i></div>
+        <div class="floating-item float-2"><i class="fa-brands fa-linux"></i></div>
+        <div class="floating-item float-3"><i class="fa-solid fa-dharmachakra"></i></div>
+        <div class="floating-item float-4"><i class="fa-solid fa-terminal"></i></div>
+        <div class="floating-item float-5"><i class="fa-solid fa-box-archive"></i></div>
+        <div class="floating-item float-6"><i class="fa-brands fa-docker"></i></div>
+        <div class="floating-item float-7"><i class="fa-brands fa-linux"></i></div>
+        <div class="floating-item float-8"><i class="fa-solid fa-server"></i></div>
+    </div>
+
+    <!-- FLOATING NAVBAR -->
     <header class="navbar-container">
         <div class="logo">Qodirjon<span>.dev</span></div>
         <nav class="nav-links">
@@ -39,7 +51,7 @@
         <p>I focus on Linux infrastructure, Docker containerization, and process automation.</p>
     </section>
 
-    <!-- TECHNICAL SKILLS -->
+    <!-- TECHNICAL SKILLS (Buttonlar kattalashtirilgan) -->
     <section id="skills" class="container">
         <h2>Technical Skills</h2>
         <div class="skills-grid">
@@ -56,7 +68,7 @@
         </div>
     </section>
 
-    <!-- EDUCATION TIMELINE -->
+    <!-- EDUCATION SECTION -->
     <section id="education" class="container">
         <h2>Education & Learning</h2>
         <div class="timeline">
@@ -104,12 +116,11 @@
         </div>
     </section>
 
-    <!-- CERTIFICATES (3 xil alohida rang va unikal effektlar) -->
+    <!-- CERTIFICATES SECTION -->
     <section id="certificates" class="container">
         <h2>Certificates</h2>
         <div class="cert-grid">
             
-            <!-- 1. Neon Cyan (Moviy Lazer) -->
             <div class="cert-card cert-cyan">
                 <div class="cert-scan-beam"></div>
                 <div class="cert-badge">
@@ -122,7 +133,6 @@
                 </div>
             </div>
 
-            <!-- 2. Cyber Purple (Binafsha Lazer) -->
             <div class="cert-card cert-purple">
                 <div class="cert-scan-beam"></div>
                 <div class="cert-badge">
@@ -135,7 +145,6 @@
                 </div>
             </div>
 
-            <!-- 3. Emerald Green (Zumrad Yashil Lazer) -->
             <div class="cert-card cert-emerald">
                 <div class="cert-scan-beam"></div>
                 <div class="cert-badge">
@@ -169,5 +178,7 @@
         </div>
     </footer>
 
+    <!-- Interactive Mouse Parallax Script -->
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>
