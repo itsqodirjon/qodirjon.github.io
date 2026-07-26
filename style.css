@@ -1,13 +1,11 @@
 /* ============================================================
-   1. GLOBAL STYLES & NEW TYPOGRAPHY
+   1. GLOBAL STYLES & TYPOGRAPHY
    ============================================================ */
 :root {
     --bg-main: #080d1a;
-    --bg-card: rgba(13, 19, 34, 0.85);
     --accent-cyan: #38bdf8;
     --accent-purple: #a855f7;
     --accent-emerald: #10b981;
-    --accent-pink: #f43f5e;
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --font-sans: 'Plus Jakarta Sans', sans-serif;
@@ -25,15 +23,15 @@ html {
 }
 
 body {
-    background-color: var(--bg-main);
-    color: var(--text-primary);
-    font-family: var(--font-sans);
+    background-color: var(--bg-main) !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-sans) !important;
     line-height: 1.6;
     overflow-x: hidden;
     background-image: 
-        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
-    background-attachment: fixed;
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.12) 0%, transparent 40%) !important;
+    background-attachment: fixed !important;
 }
 
 .container {
@@ -60,7 +58,7 @@ h2::before {
 }
 
 /* ============================================================
-   2. FLOATING NAVIGATION BAR & EXTRAORDINARY NAV BUTTON HOVER
+   2. EXTRAORDINARY HEADER BUTTON HOVER EFFECT
    ============================================================ */
 header.navbar-container {
     position: fixed !important;
@@ -73,13 +71,13 @@ header.navbar-container {
     justify-content: space-between !important;
     align-items: center !important;
     padding: 12px 28px !important;
-    background: rgba(13, 19, 34, 0.8) !important;
+    background: rgba(13, 19, 34, 0.85) !important;
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(56, 189, 248, 0.25) !important;
+    border: 1px solid rgba(56, 189, 248, 0.3) !important;
     border-radius: 50px !important;
     z-index: 9999 !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7) !important;
 }
 
 .logo {
@@ -96,34 +94,34 @@ header.navbar-container {
 .nav-links {
     display: flex !important;
     align-items: center !important;
-    gap: 10px !important;
+    gap: 12px !important;
 }
 
-/* Navigatsiya Tugmalari - Unikal Holografik Hover Effekti */
+/* Header Button Hover: Floating Glow Wave & Neon Border Effect */
 .nav-links a.nav-btn {
     position: relative !important;
     text-decoration: none !important;
     color: var(--text-secondary) !important;
-    font-size: 0.92rem !important;
+    font-size: 0.95rem !important;
     font-weight: 600 !important;
-    padding: 8px 18px !important;
-    border-radius: 20px !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
     background: transparent !important;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
     display: inline-block !important;
-    border: 1px solid transparent !important;
     overflow: hidden !important;
+    border: 1px solid transparent !important;
     z-index: 1 !important;
 }
 
 .nav-links a.nav-btn::before {
     content: '' !important;
     position: absolute !important;
-    bottom: -100% !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: linear-gradient(0deg, rgba(56, 189, 248, 0.3) 0%, transparent 100%) !important;
+    inset: 0 !important;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(168, 85, 247, 0.25)) !important;
+    border-radius: 25px !important;
+    opacity: 0 !important;
+    transform: translateY(100%) !important;
     transition: all 0.4s ease !important;
     z-index: -1 !important;
 }
@@ -132,30 +130,33 @@ header.navbar-container {
     content: '' !important;
     position: absolute !important;
     bottom: 0 !important;
-    left: 50% !important;
-    transform: translateX(-50%) scaleX(0) !important;
+    left: 10% !important;
     width: 80% !important;
-    height: 2px !important;
+    height: 3px !important;
     background: var(--accent-cyan) !important;
-    box-shadow: 0 0 10px var(--accent-cyan) !important;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    border-radius: 10px !important;
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    box-shadow: 0 0 12px var(--accent-cyan) !important;
 }
 
 .nav-links a.nav-btn:hover {
     color: #ffffff !important;
-    transform: translateY(-4px) !important;
-    text-shadow: 0 0 10px rgba(56, 189, 248, 0.8) !important;
+    transform: translateY(-5px) scale(1.05) !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8) !important;
 }
 
 .nav-links a.nav-btn:hover::before {
-    bottom: 0 !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 .nav-links a.nav-btn:hover::after {
-    transform: translateX(-50%) scaleX(1) !important;
+    opacity: 1 !important;
+    transform: scaleX(1) !important;
 }
 
-/* Contact Tugmasi */
 .nav-links a.contact-btn {
     border: 1px solid var(--accent-cyan) !important;
     color: var(--accent-cyan) !important;
@@ -164,15 +165,15 @@ header.navbar-container {
 .nav-links a.contact-btn:hover {
     background: var(--accent-cyan) !important;
     color: #080a0f !important;
-    box-shadow: 0 0 25px rgba(56, 189, 248, 0.8) !important;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.9) !important;
 }
 
 /* ============================================================
-   3. HERO SECTION & DUMALOQ HOVER AVATAR
+   3. HERO AVATAR
    ============================================================ */
 .hero {
     text-align: center;
-    padding: 150px 20px 40px;
+    padding: 160px 20px 40px;
 }
 
 .avatar-wrapper {
@@ -201,12 +202,11 @@ header.navbar-container {
     inset: -6px;
     border-radius: 50%;
     padding: 3px;
-    background: conic-gradient(from 0deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink), var(--accent-cyan));
+    background: conic-gradient(from 0deg, var(--accent-cyan), var(--accent-purple), var(--accent-emerald), var(--accent-cyan));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    opacity: 0.4;
-    transition: all 0.6s ease;
+    opacity: 0.5;
     animation: spinRing 6s linear infinite;
 }
 
@@ -215,18 +215,9 @@ header.navbar-container {
 }
 
 .avatar-wrapper:hover .hero-avatar {
-    transform: scale(1.08) rotate(3deg);
+    transform: scale(1.1) rotate(4deg);
     border-color: var(--accent-cyan);
-    box-shadow: 
-        0 0 35px rgba(56, 189, 248, 0.8),
-        inset 0 0 15px rgba(56, 189, 248, 0.5);
-}
-
-.avatar-wrapper:hover::before {
-    opacity: 1;
-    inset: -12px;
-    animation: spinRing 2s linear infinite;
-    filter: drop-shadow(0 0 12px #38bdf8);
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.9);
 }
 
 .hero h1 {
@@ -242,12 +233,10 @@ header.navbar-container {
     color: var(--accent-purple);
     font-family: var(--font-mono);
     font-size: 1.05rem;
-    max-width: 700px;
-    margin: 0 auto;
 }
 
 /* ============================================================
-   4. TECHNICAL SKILLS BADGES
+   4. TECHNICAL SKILLS
    ============================================================ */
 .skills-grid {
     display: flex;
@@ -258,7 +247,7 @@ header.navbar-container {
 .badge {
     position: relative;
     background: #0d1322;
-    border: 1px solid rgba(56, 189, 248, 0.2);
+    border: 1px solid rgba(56, 189, 248, 0.25);
     padding: 12px 22px;
     border-radius: 12px;
     color: #e2e8f0;
@@ -269,68 +258,19 @@ header.navbar-container {
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    overflow: hidden;
-    z-index: 1;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.badge::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-        from 0deg,
-        transparent 0deg,
-        var(--accent-cyan) 60deg,
-        var(--accent-purple) 120deg,
-        transparent 180deg
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease, transform 2s ease;
-    z-index: -2;
-    transform: rotate(0deg);
-}
-
-.badge::after {
-    content: '';
-    position: absolute;
-    inset: 1px;
-    background: #0d1322;
-    border-radius: 11px;
-    z-index: -1;
-    transition: background 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 .badge:hover {
     color: #ffffff;
-    transform: scale(1.08) translateY(-4px);
-    border-color: transparent;
-    box-shadow: 
-        0 10px 25px -5px rgba(56, 189, 248, 0.4),
-        0 0 15px rgba(168, 85, 247, 0.3);
-}
-
-.badge:hover::before {
-    opacity: 1;
-    transform: rotate(360deg);
-}
-
-.badge:hover::after {
     background: #111a2e;
+    transform: translateY(-5px) scale(1.05);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.5);
 }
 
 .badge i {
     color: var(--accent-cyan);
-    font-size: 1.1rem;
-    transition: transform 0.4s ease, color 0.4s ease;
-}
-
-.badge:hover i {
-    color: var(--accent-purple);
-    transform: rotate(12deg) scale(1.2);
 }
 
 /* ============================================================
@@ -343,7 +283,6 @@ header.navbar-container {
 }
 
 .timeline-item {
-    position: relative;
     background: #0d1322;
     padding: 20px 24px;
     border-radius: 16px;
@@ -351,83 +290,38 @@ header.navbar-container {
     display: flex;
     align-items: center;
     gap: 20px;
-    overflow: hidden;
-    z-index: 1;
-    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(56, 189, 248, 0.12),
-        rgba(168, 85, 247, 0.15),
-        transparent
-    );
-    transition: left 0.8s ease;
-    z-index: -1;
+    transition: all 0.4s ease;
 }
 
 .timeline-item:hover {
-    transform: translateX(12px) scale(1.02);
+    transform: translateX(10px);
     border-color: var(--accent-cyan);
     background: #111a2e;
-    box-shadow: 
-        -5px 10px 30px -5px rgba(56, 189, 248, 0.3),
-        0 0 20px rgba(168, 85, 247, 0.2);
-}
-
-.timeline-item:hover::before {
-    left: 100%;
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25);
 }
 
 .timeline-icon {
     width: 50px;
     height: 50px;
     border-radius: 14px;
-    background: rgba(56, 189, 248, 0.08);
-    border: 1px solid rgba(56, 189, 248, 0.2);
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.3);
     color: var(--accent-cyan);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.25rem;
-    flex-shrink: 0;
-    transition: all 2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.8s ease;
 }
 
 .timeline-item:hover .timeline-icon {
-    background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+    background: var(--accent-cyan);
     color: #080a0f;
-    border-color: transparent;
-    transform: rotateY(360deg) scale(1.15);
-    box-shadow: 0 0 25px rgba(56, 189, 248, 0.9);
-}
-
-.timeline-content h3 {
-    color: #f8fafc;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 3px;
-}
-
-.timeline-item:hover .timeline-content h3 {
-    color: var(--accent-cyan);
-}
-
-.timeline-content .institution {
-    color: var(--text-secondary);
-    font-size: 0.92rem;
+    transform: rotateY(360deg);
 }
 
 /* ============================================================
-   6. CERTIFICATES - INDIVIDUAL CUSTOM HOVER COLORS
+   6. CERTIFICATES (HAR BIRI UCHUN ALOHIDA COLOR HOVER)
    ============================================================ */
 .cert-grid {
     display: grid;
@@ -437,17 +331,13 @@ header.navbar-container {
 
 .cert-card {
     position: relative;
-    background: rgba(13, 19, 34, 0.75);
-    backdrop-filter: blur(12px);
+    background: rgba(13, 19, 34, 0.85);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 28px 24px;
     border-radius: 20px;
     overflow: hidden;
-    z-index: 1;
     cursor: pointer;
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-                border-color 0.4s ease,
-                box-shadow 0.6s ease;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .cert-scan-beam {
@@ -458,7 +348,6 @@ header.navbar-container {
     height: 100%;
     opacity: 0;
     pointer-events: none;
-    z-index: 2;
 }
 
 .cert-badge {
@@ -472,23 +361,23 @@ header.navbar-container {
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.5s ease;
 }
 
-/* --- 1-Sertifikat: CYAN (Moviy Nur) --- */
+/* --- 1. CYAN COLOR (MOVIY) --- */
 .cert-cyan .cert-scan-beam {
-    background: linear-gradient(180deg, transparent 0%, rgba(56, 189, 248, 0.05) 60%, rgba(56, 189, 248, 0.6) 98%, #38bdf8 100%);
+    background: linear-gradient(180deg, transparent, rgba(56, 189, 248, 0.5), #38bdf8);
     box-shadow: 0 4px 15px #38bdf8;
 }
 .cert-cyan .cert-badge {
-    background: rgba(56, 189, 248, 0.1);
-    border: 1px solid rgba(56, 189, 248, 0.3);
+    background: rgba(56, 189, 248, 0.15);
     color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
 }
 .cert-cyan:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-10px) scale(1.02);
     border-color: #38bdf8;
-    box-shadow: 0 15px 35px -10px rgba(56, 189, 248, 0.4);
+    box-shadow: 0 15px 35px -10px rgba(56, 189, 248, 0.5);
 }
 .cert-cyan:hover .cert-badge {
     background: #38bdf8;
@@ -496,20 +385,20 @@ header.navbar-container {
     box-shadow: 0 0 25px #38bdf8;
 }
 
-/* --- 2-Sertifikat: PURPLE (Binafsha Nur) --- */
+/* --- 2. PURPLE COLOR (BINAFSHA) --- */
 .cert-purple .cert-scan-beam {
-    background: linear-gradient(180deg, transparent 0%, rgba(168, 85, 247, 0.05) 60%, rgba(168, 85, 247, 0.6) 98%, #a855f7 100%);
+    background: linear-gradient(180deg, transparent, rgba(168, 85, 247, 0.5), #a855f7);
     box-shadow: 0 4px 15px #a855f7;
 }
 .cert-purple .cert-badge {
-    background: rgba(168, 85, 247, 0.1);
-    border: 1px solid rgba(168, 85, 247, 0.3);
+    background: rgba(168, 85, 247, 0.15);
     color: #a855f7;
+    border: 1px solid rgba(168, 85, 247, 0.4);
 }
 .cert-purple:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-10px) scale(1.02);
     border-color: #a855f7;
-    box-shadow: 0 15px 35px -10px rgba(168, 85, 247, 0.4);
+    box-shadow: 0 15px 35px -10px rgba(168, 85, 247, 0.5);
 }
 .cert-purple:hover .cert-badge {
     background: #a855f7;
@@ -517,20 +406,20 @@ header.navbar-container {
     box-shadow: 0 0 25px #a855f7;
 }
 
-/* --- 3-Sertifikat: EMERALD (Yashil Zumrad Nur) --- */
+/* --- 3. EMERALD COLOR (YASHIL ZUMRAD) --- */
 .cert-emerald .cert-scan-beam {
-    background: linear-gradient(180deg, transparent 0%, rgba(16, 185, 129, 0.05) 60%, rgba(16, 185, 129, 0.6) 98%, #10b981 100%);
+    background: linear-gradient(180deg, transparent, rgba(16, 185, 129, 0.5), #10b981);
     box-shadow: 0 4px 15px #10b981;
 }
 .cert-emerald .cert-badge {
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    background: rgba(16, 185, 129, 0.15);
     color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.4);
 }
 .cert-emerald:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-10px) scale(1.02);
     border-color: #10b981;
-    box-shadow: 0 15px 35px -10px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 15px 35px -10px rgba(16, 185, 129, 0.5);
 }
 .cert-emerald:hover .cert-badge {
     background: #10b981;
@@ -552,7 +441,6 @@ header.navbar-container {
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
     color: var(--text-secondary);
     display: block;
     margin-bottom: 8px;
@@ -562,7 +450,6 @@ header.navbar-container {
     font-size: 1.15rem;
     color: #f8fafc;
     font-weight: 700;
-    margin-bottom: 6px;
 }
 
 .cert-date {
@@ -572,7 +459,7 @@ header.navbar-container {
 }
 
 /* ============================================================
-   7. FOOTER & CENTERED SOCIAL ICONS
+   7. FOOTER
    ============================================================ */
 footer.footer-container {
     width: 100% !important;
@@ -583,15 +470,12 @@ footer.footer-container {
     justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
-    background: transparent !important;
 }
 
 .footer-content {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
 }
 
 .footer-text {
@@ -599,19 +483,15 @@ footer.footer-container {
     font-size: 0.95rem !important;
     font-family: var(--font-mono) !important;
     margin-bottom: 20px !important;
-    text-transform: uppercase !important;
     letter-spacing: 2px !important;
 }
 
 .social-links {
     display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
     gap: 20px !important;
 }
 
 .social-links a.social-btn {
-    position: relative !important;
     width: 55px !important;
     height: 55px !important;
     border-radius: 16px !important;
@@ -623,21 +503,14 @@ footer.footer-container {
     justify-content: center !important;
     font-size: 1.4rem !important;
     text-decoration: none !important;
-    z-index: 1 !important;
-    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 .social-links a.social-btn:hover {
     color: #080a0f !important;
     background: var(--accent-cyan) !important;
     transform: translateY(-8px) scale(1.15) !important;
-    box-shadow: 
-        0 12px 25px -5px rgba(56, 189, 248, 0.6),
-        0 0 30px rgba(168, 85, 247, 0.5) !important;
-}
-
-.social-links a.social-btn i {
-    transition: transform 0.4s ease !important;
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.6) !important;
 }
 
 .social-links a.social-btn:hover i {
@@ -650,31 +523,14 @@ footer.footer-container {
 @media (max-width: 768px) {
     header.navbar-container {
         flex-direction: column !important;
-        gap: 12px !important;
-        padding: 12px !important;
+        padding: 15px !important;
         border-radius: 20px !important;
     }
-    
     .nav-links {
         flex-wrap: wrap !important;
         justify-content: center !important;
-        gap: 6px !important;
     }
-
     .hero {
         padding-top: 200px;
-    }
-
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-
-    .timeline-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .skills-grid {
-        justify-content: center;
     }
 }
