@@ -1,5 +1,5 @@
 /* ============================================================
-   1. GLOBAL RESET & FUTURISTIC THEME VARIABLES
+   1. GLOBAL STYLES & FUTURISTIC THEME VARIABLES
    ============================================================ */
 :root {
     --bg-main: #080d1a;
@@ -40,7 +40,6 @@ body {
     padding: 50px 20px;
 }
 
-/* Sarlavhalar */
 h2 {
     font-size: 1.8rem;
     font-weight: 800;
@@ -59,34 +58,33 @@ h2::before {
 }
 
 /* ============================================================
-   2. FLOATING NAVIGATION BAR (O'ng tepaga tartiblangan)
+   2. FLOATING NAVIGATION BAR (O'ng tepaga tartiblangan & Glassmorphism)
    ============================================================ */
-.navbar-container {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 1100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 28px;
-    background: rgba(13, 19, 34, 0.75);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    border-radius: 50px;
-    z-index: 1000;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+header.navbar-container {
+    position: fixed !important;
+    top: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 90% !important;
+    max-width: 1100px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 12px 28px !important;
+    background: rgba(13, 19, 34, 0.75) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(56, 189, 248, 0.25) !important;
+    border-radius: 50px !important;
+    z-index: 9999 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
 }
 
 .logo {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 800;
-    color: #f8fafc;
+    color: #ffffff;
     font-family: var(--font-mono);
-    letter-spacing: -0.5px;
 }
 
 .logo span {
@@ -94,56 +92,60 @@ h2::before {
 }
 
 .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
 }
 
-.nav-btn {
-    position: relative;
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    overflow: hidden;
+/* Navigatsiya tugmalari va Neon Cyber Pill hover effekti */
+.nav-links a.nav-btn {
+    position: relative !important;
+    text-decoration: none !important;
+    color: var(--text-secondary) !important;
+    font-size: 0.92rem !important;
+    font-weight: 600 !important;
+    padding: 8px 18px !important;
+    border-radius: 20px !important;
+    background: transparent !important;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    display: inline-block !important;
+    border: 1px solid transparent !important;
+    overflow: hidden !important;
 }
 
-.nav-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(129, 140, 248, 0.2));
-    border-radius: 20px;
-    opacity: 0;
-    transform: scale(0.6);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    z-index: -1;
+.nav-links a.nav-btn::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(129, 140, 248, 0.2)) !important;
+    border-radius: 20px !important;
+    opacity: 0 !important;
+    transform: scale(0.6) !important;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    z-index: -1 !important;
 }
 
-.nav-btn:hover {
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
-    transform: translateY(-2px);
+.nav-links a.nav-btn:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.8) !important;
+    transform: translateY(-2px) !important;
 }
 
-.nav-btn:hover::before {
-    opacity: 1;
-    transform: scale(1);
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+.nav-links a.nav-btn:hover::before {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4) !important;
 }
 
-.contact-btn {
-    border: 1px solid rgba(56, 189, 248, 0.4);
-    color: var(--accent-cyan);
+.nav-links a.contact-btn {
+    border: 1px solid var(--accent-cyan) !important;
+    color: var(--accent-cyan) !important;
 }
 
-.contact-btn:hover {
-    background: var(--accent-cyan);
+.nav-links a.contact-btn:hover {
+    background: var(--accent-cyan) !important;
     color: #080a0f !important;
-    box-shadow: 0 0 25px rgba(56, 189, 248, 0.8);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.8) !important;
 }
 
 /* ============================================================
@@ -408,7 +410,7 @@ h2::before {
 }
 
 /* ============================================================
-   6. CERTIFICATES (Futuristic Lazer Beam Scan)
+   6. CERTIFICATES (Futuristic Laser Beam Scan)
    ============================================================ */
 .cert-grid {
     display: grid;
@@ -521,105 +523,95 @@ h2::before {
 }
 
 /* ============================================================
-   7. FOOTER & CENTERED SOCIAL ICONS
+   7. FOOTER & CENTERED SOCIAL ICONS (Nodir Holographic Ripple)
    ============================================================ */
-.footer-container {
-    width: 100%;
-    padding: 60px 20px 40px;
-    margin-top: 60px;
-    border-top: 1px solid rgba(56, 189, 248, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+footer.footer-container {
+    width: 100% !important;
+    padding: 60px 20px 40px !important;
+    margin-top: 80px !important;
+    border-top: 1px solid rgba(56, 189, 248, 0.1) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    background: transparent !important;
 }
 
 .footer-content {
-    text-align: center;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
 }
 
 .footer-text {
-    color: #64748b;
-    font-size: 0.85rem;
-    font-family: var(--font-mono);
-    margin-bottom: 18px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    color: var(--text-secondary) !important;
+    font-size: 0.95rem !important;
+    font-family: var(--font-mono) !important;
+    margin-bottom: 20px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
 }
 
 .social-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 20px !important;
 }
 
-.social-btn {
-    position: relative;
-    width: 52px;
-    height: 52px;
-    border-radius: 16px;
-    background: #0d1322;
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    color: var(--accent-cyan);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.35rem;
-    text-decoration: none;
-    z-index: 1;
-    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+/* Social Ikonka Tugmalari */
+.social-links a.social-btn {
+    position: relative !important;
+    width: 55px !important;
+    height: 55px !important;
+    border-radius: 16px !important;
+    background: #0d1322 !important;
+    border: 1px solid rgba(56, 189, 248, 0.25) !important;
+    color: var(--accent-cyan) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.4rem !important;
+    text-decoration: none !important;
+    z-index: 1 !important;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-.social-btn::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 18px;
-    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transform: scale(0.8);
-}
-
-.social-btn:hover {
-    color: #080a0f;
-    background: var(--accent-cyan);
-    transform: translateY(-8px) scale(1.15);
+/* Footer Icon Hover Effekti */
+.social-links a.social-btn:hover {
+    color: #080a0f !important;
+    background: var(--accent-cyan) !important;
+    transform: translateY(-8px) scale(1.15) !important;
     box-shadow: 
         0 12px 25px -5px rgba(56, 189, 248, 0.6),
-        0 0 30px rgba(129, 140, 248, 0.5);
+        0 0 30px rgba(129, 140, 248, 0.5) !important;
 }
 
-.social-btn:hover::after {
-    opacity: 1;
-    transform: scale(1.25);
-    filter: blur(8px);
+.social-links a.social-btn i {
+    transition: transform 0.4s ease !important;
 }
 
-.social-btn i {
-    transition: transform 0.4s ease;
-}
-
-.social-btn:hover i {
-    transform: scale(1.2) rotate(360deg);
+.social-links a.social-btn:hover i {
+    transform: rotate(360deg) scale(1.2) !important;
 }
 
 /* ============================================================
-   8. RESPONSIVE DESIGN (Mobil moslashuvchanlik)
+   8. RESPONSIVE DESIGN (Mobil qurilmalar uchun)
    ============================================================ */
 @media (max-width: 768px) {
-    .navbar-container {
-        flex-direction: column;
-        gap: 12px;
-        padding: 12px;
-        border-radius: 20px;
+    header.navbar-container {
+        flex-direction: column !important;
+        gap: 12px !important;
+        padding: 12px !important;
+        border-radius: 20px !important;
     }
     
     .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 6px !important;
     }
 
     .hero {
