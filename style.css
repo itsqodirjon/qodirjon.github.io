@@ -150,46 +150,51 @@ body {
     border-top: 1px dashed var(--border-color);
 }
 
-/* SEQUENTIAL FADE-IN ANIMATION */
+/* SEQUENTIAL FADE-IN ANIMATION (5 SEKUNDLIK) */
 .output-content.show > * {
     opacity: 0;
     transform: translateY(20px);
-    animation: smoothFadeUp 2.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: smoothFadeUp 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* KETMA-KETLIK VA CHIQISH KECHIKISHI (STAGGER DELAY) */
+/* CHIQISH KECHIKISHI (STAGGER DELAY) */
 .output-content.show .profile-block { 
-    animation-delay: 0.2s; 
+    animation-delay: 0.1s; 
 }
 
 .output-content.show .bio { 
-    animation-delay: 1.2s; 
+    animation-delay: 0.7s; 
 }
 
 .output-content.show .social-links { 
-    animation-delay: 2.5s; 
+    animation-delay: 1.3s; 
 }
 
-/* Technical Stack (Skill-lar) bo'limi 4-o'rin */
+/* Technical Stack (Skill-lar) */
 .output-content.show .section-block:nth-child(4) { 
-    animation-delay: 4.0s; 
+    animation-delay: 2.0s; 
 }
 
-/* Education & Courses bo'limi 5-o'rin */
+/* Education & Courses */
 .output-content.show .section-block:nth-child(5) { 
-    animation-delay: 6.5s; 
+    animation-delay: 2.7s; 
 }
 
-/* Certificates bo'limi 6-o'rin */
+/* Certificates */
 .output-content.show .section-block:nth-child(6) { 
-    animation-delay: 9.0s; 
+    animation-delay: 3.4s; 
+}
+
+/* Footer / Copyright */
+.output-content.show .terminal-footer { 
+    animation-delay: 3.8s; 
 }
 
 @keyframes smoothFadeUp {
     0% {
         opacity: 0;
-        transform: translateY(25px);
-        filter: blur(6px);
+        transform: translateY(20px);
+        filter: blur(4px);
     }
     100% {
         opacity: 1;
@@ -427,4 +432,20 @@ body {
     font-size: 0.8rem;
     font-family: var(--font-mono);
     color: var(--text-muted);
+}
+
+/* TERMINAL FOOTER STILI */
+.terminal-footer {
+    margin-top: 30px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border-color);
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.terminal-footer i {
+    color: var(--accent);
+    margin: 0 2px;
 }
