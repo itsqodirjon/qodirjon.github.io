@@ -27,12 +27,14 @@
 
             <div class="terminal-body">
                 <!-- INPUT LINE -->
-                <div class="interactive-line">
-                    <span class="prompt">root#:</span>
-                    <div class="input-wrapper">
-                        <input type="text" id="cmdInput" autofocus placeholder="type 'whoami' to inspect profile..." autocomplete="off" spellcheck="false">
+                <form id="terminalForm" onsubmit="handleCommand(event)">
+                    <div class="interactive-line">
+                        <span class="prompt">root#:</span>
+                        <div class="input-wrapper">
+                            <input type="text" id="cmdInput" autofocus placeholder="type 'whoami' to inspect profile..." autocomplete="off" spellcheck="false">
+                        </div>
                     </div>
-                </div>
+                </form>
 
                 <!-- HIDDEN OUTPUT (WHOAMI IS EXECUTED) -->
                 <div id="outputContent" class="output-content hidden">
@@ -143,6 +145,28 @@
         </div>
     </main>
 
-    <script src="script.js"></script>
+    <!-- INLINE SCRIPT FOR GUARANTEED EXECUTION -->
+    <script>
+        function handleCommand(event) {
+            event.preventDefault();
+            const input = document.getElementById('cmdInput');
+            const output = document.getElementById('outputContent');
+            const command = input.value.trim().toLowerCase();
+
+            if (command === 'whoami') {
+                input.value = 'whoami';
+                input.disabled = true;
+                output.classList.remove('hidden');
+                output.classList.add('show');
+            } else if (command === 'clear') {
+                output.classList.remove('show');
+                output.classList.add('hidden');
+                input.value = '';
+                input.disabled = false;
+            } else {
+                alert("Command not found. Please type 'whoami'");
+            }
+        }
+    </script>
 </body>
 </html>
