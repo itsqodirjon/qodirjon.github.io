@@ -449,3 +449,53 @@ body {
     color: var(--accent);
     margin: 0 2px;
 }
+
+/* ==========================================
+   RESPONSIVE DESIGN (MOBIL VA TABLET)
+   ========================================== */
+@media (max-width: 576px) {
+    body {
+        padding: 16px 10px;
+    }
+
+    .terminal-body {
+        padding: 16px;
+    }
+
+    .terminal-title {
+        font-size: 0.8rem;
+    }
+
+    /* Profil qismini ustma-ust qilish */
+    .profile-block {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .avatar-box {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* Karta (Card) bloklarini vertikal joylash */
+    .card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .card .badge, .card .date {
+        align-self: flex-start;
+    }
+
+    /* Skill tugmalarini mobilga moslash */
+    .skills-grid span {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+
+    #cmdInput {
+        font-size: 1rem;
+    }
+}
