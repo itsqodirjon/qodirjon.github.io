@@ -3,129 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qodirjon Mamatyoqubov | Junior DevOps Engineer</title>
+    <title>Qodirjon Mamatyoqubov | DevOps Engineer</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts & Font Awesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-    <div class="container">
-        <!-- HEADER / PROFILE SECTION -->
+    <!-- Dynamic Background Glows -->
+    <div class="glow-bg glow-1"></div>
+    <div class="glow-bg glow-2"></div>
+
+    <main class="dashboard">
+        <!-- TOP PROFILE CARD -->
         <header class="profile-card">
-            <div class="status-badge">
-                <span class="pulse-dot"></span> Available for Opportunities
-            </div>
-            
-            <div class="avatar-container">
-                <img src="portfolio me/avatar.jpg" alt="Qodirjon Mamatyoqubov" class="avatar-img">
+            <div class="profile-header">
+                <div class="avatar-box">
+                    <img src="portfolio me/avatar.jpg" alt="Qodirjon" onerror="this.src='https://ui-avatars.com/api/?name=Qodirjon+Mamatyoqubov&background=38bdf8&color=000&size=150'">
+                </div>
+                <div class="profile-info">
+                    <div class="status-pill">
+                        <span class="status-dot"></span> System Online & Ready
+                    </div>
+                    <h1>Qodirjon Mamatyoqubov</h1>
+                    <p class="role"><i class="fa-solid fa-terminal"></i> Junior DevOps Engineer</p>
+                </div>
             </div>
 
-            <h1 class="name">Qodirjon Mamatyoqubov</h1>
-            <p class="role">Junior DevOps Engineer</p>
-            
             <p class="bio">
-                Passionate about Linux infrastructure, containerization, CI/CD automation, and modern DevOps practices. Focused on building reliable and scalable cloud environments.
+                Specializing in Linux infrastructure, Docker containerization, CI/CD pipeline automation, and building resilient server environments.
             </p>
 
-            <!-- SOCIAL BUTTONS (Icons only) -->
-            <div class="social-actions">
-                <a href="https://github.com/itsqodirjon" target="_blank" class="btn-icon" title="GitHub" aria-label="GitHub">
+            <div class="social-bar">
+                <a href="https://github.com/itsqodirjon" target="_blank" class="social-btn" title="GitHub">
                     <i class="fa-brands fa-github"></i>
                 </a>
-                <a href="https://linkedin.com/in/itsqodirjon" target="_blank" class="btn-icon" title="LinkedIn" aria-label="LinkedIn">
+                <a href="https://linkedin.com/in/itsqodirjon" target="_blank" class="social-btn" title="LinkedIn">
                     <i class="fa-brands fa-linkedin-in"></i>
                 </a>
-                <a href="https://t.me/itsqodirjon" target="_blank" class="btn-icon" title="Telegram" aria-label="Telegram">
+                <a href="https://t.me/itsqodirjon" target="_blank" class="social-btn" title="Telegram">
                     <i class="fa-paper-plane"></i>
                 </a>
             </div>
         </header>
 
-        <!-- TECHNICAL SKILLS -->
-        <section class="section">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item"><i class="fa-brands fa-linux"></i> Linux / Zsh</div>
-                <div class="skill-item"><i class="fa-brands fa-docker"></i> Docker</div>
-                <div class="skill-item"><i class="fa-solid fa-server"></i> Kubernetes</div>
-                <div class="skill-item"><i class="fa-solid fa-code-branch"></i> CI/CD Pipelines</div>
-                <div class="skill-item"><i class="fa-solid fa-gears"></i> Ansible</div>
-                <div class="skill-item"><i class="fa-brands fa-python"></i> Python</div>
-                <div class="skill-item"><i class="fa-solid fa-network-wired"></i> Virtual Machines</div>
-                <div class="skill-item"><i class="fa-brands fa-git-alt"></i> Git & GitHub</div>
-                <div class="skill-item"><i class="fa-solid fa-globe"></i> Nginx</div>
+        <!-- INTERACTIVE TERMINAL SECTION -->
+        <section class="terminal-window">
+            <div class="terminal-header">
+                <div class="window-buttons">
+                    <span class="btn-close"></span>
+                    <span class="btn-minimize"></span>
+                    <span class="btn-expand"></span>
+                </div>
+                <div class="terminal-title">qodirjon@devops-node:~</div>
+            </div>
+            <div class="terminal-body">
+                <p><span class="prompt">qodirjon@devops:~$</span> <span class="cmd">whoami</span></p>
+                <p class="response">Qodirjon Mamatyoqubov — Passionate Junior DevOps Engineer focused on infrastructure automation.</p>
+                
+                <p><span class="prompt">qodirjon@devops:~$</span> <span class="cmd">neofetch --skills</span></p>
+                <div class="skills-flex">
+                    <span class="tech-tag"><i class="fa-brands fa-linux"></i> Linux (Zsh/Bash)</span>
+                    <span class="tech-tag"><i class="fa-brands fa-docker"></i> Docker</span>
+                    <span class="tech-tag"><i class="fa-solid fa-dharmachakra"></i> Kubernetes</span>
+                    <span class="tech-tag"><i class="fa-solid fa-diagram-project"></i> CI/CD Pipelines</span>
+                    <span class="tech-tag"><i class="fa-solid fa-gears"></i> Ansible</span>
+                    <span class="tech-tag"><i class="fa-brands fa-python"></i> Python</span>
+                    <span class="tech-tag"><i class="fa-solid fa-server"></i> Virtual Machines</span>
+                    <span class="tech-tag"><i class="fa-brands fa-git-alt"></i> Git / GitHub</span>
+                    <span class="tech-tag"><i class="fa-solid fa-network-wired"></i> Nginx</span>
+                </div>
             </div>
         </section>
 
         <!-- EDUCATION & COURSES -->
-        <section class="section">
-            <h2 class="section-title">Education & Courses</h2>
-            <div class="timeline">
-                <div class="card">
-                    <div class="card-header">
+        <section class="grid-section">
+            <h2 class="section-heading"><i class="fa-solid fa-graduation-cap"></i> Education & Courses</h2>
+            <div class="cards-wrapper">
+                <div class="dash-card">
+                    <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div class="card-details">
                         <h3>DevOps Engineering Course</h3>
-                        <span class="card-date">Completed</span>
+                        <p class="institution">42.uz Platform</p>
                     </div>
-                    <p class="card-subtitle">42.uz Platform</p>
+                    <span class="badge-status">Completed</span>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
+                <div class="dash-card">
+                    <div class="card-icon"><i class="fa-solid fa-terminal"></i></div>
+                    <div class="card-details">
                         <h3>DevOps Course</h3>
-                        <span class="card-date">Completed</span>
+                        <p class="institution">Boot.dev Platform</p>
                     </div>
-                    <p class="card-subtitle">Boot.dev Platform</p>
+                    <span class="badge-status">Completed</span>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
+                <div class="dash-card">
+                    <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+                    <div class="card-details">
                         <h3>Express Backend Course</h3>
-                        <span class="card-date">Completed</span>
+                        <p class="institution">42.uz Platform</p>
                     </div>
-                    <p class="card-subtitle">42.uz Platform</p>
+                    <span class="badge-status">Completed</span>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
+                <div class="dash-card">
+                    <div class="card-icon"><i class="fa-solid fa-school"></i></div>
+                    <div class="card-details">
                         <h3>Secondary Education</h3>
-                        <span class="card-date">Graduated</span>
+                        <p class="institution">School №44, Narin District, Namangan Region</p>
                     </div>
-                    <p class="card-subtitle">School №44, Narin District, Namangan Region</p>
+                    <span class="badge-status alt">Graduated</span>
                 </div>
             </div>
         </section>
 
         <!-- CERTIFICATES -->
-        <section class="section">
-            <h2 class="section-title">Certificates</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-header">
+        <section class="grid-section">
+            <h2 class="section-heading"><i class="fa-solid fa-certificate"></i> Verified Certificates</h2>
+            <div class="cards-wrapper grid-2">
+                <div class="dash-card cert">
+                    <div class="card-icon gold"><i class="fa-solid fa-award"></i></div>
+                    <div class="card-details">
                         <h3>DevOps Engineering Foundations</h3>
-                        <span class="card-date">2026</span>
+                        <p class="institution">42.uz / DevOps Academy</p>
                     </div>
-                    <p class="card-subtitle">42.uz / DevOps Academy</p>
+                    <span class="year-badge">2026</span>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
+                <div class="dash-card cert">
+                    <div class="card-icon gold"><i class="fa-solid fa-award"></i></div>
+                    <div class="card-details">
                         <h3>Linux System Administration</h3>
-                        <span class="card-date">2026</span>
+                        <p class="institution">Linux Foundation</p>
                     </div>
-                    <p class="card-subtitle">Linux Foundation</p>
+                    <span class="year-badge">2026</span>
                 </div>
             </div>
         </section>
 
-        <!-- FOOTER -->
-        <footer class="footer">
-            <p>© 2026 Qodirjon Mamatyoqubov. All rights reserved.</p>
+        <footer>
+            <p>© 2026 Qodirjon Mamatyoqubov. Designed with Modern Glassmorphism.</p>
         </footer>
-    </div>
+    </main>
 
 </body>
 </html>
