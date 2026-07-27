@@ -3,149 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qodirjon Mamatyoqubov | Junior DevOps Engineer</title>
+    <title>Qodirjon Mamatyoqubov | DevOps Terminal</title>
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts & Font Awesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-    <main class="dashboard">
-        <!-- PROFILE HEADER -->
-        <header class="profile-card">
-            <div class="profile-top">
-                <div class="avatar-box">
-                    <img src="portfolio me/avatar.jpg" alt="Qodirjon Mamatyoqubov" onerror="this.src='https://ui-avatars.com/api/?name=Qodirjon+Mamatyoqubov&background=1e293b&color=f8fafc&size=150'">
-                </div>
-                <div class="profile-info">
-                    <div class="status-pill">
-                        <span class="status-dot"></span> Available for Opportunities
-                    </div>
-                    <h1>Qodirjon Mamatyoqubov</h1>
-                    <p class="role">Junior DevOps Engineer</p>
-                </div>
-            </div>
-
-            <p class="bio">
-                Focused on Linux infrastructure, Docker containerization, CI/CD pipeline automation, and managing scalable cloud environments.
-            </p>
-
-            <!-- SOCIAL BUTTONS (Icons only) -->
-            <div class="social-bar">
-                <a href="https://github.com/itsqodirjon" target="_blank" class="social-btn" title="GitHub" aria-label="GitHub">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/itsqodirjon" target="_blank" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://t.me/itsqodirjon" target="_blank" class="social-btn" title="Telegram" aria-label="Telegram">
-                    <i class="fa-brands fa-telegram"></i>
-                </a>
-            </div>
-        </header>
-
-        <!-- TERMINAL OVERVIEW -->
-        <section class="terminal-window">
+    <main class="terminal-container">
+        <!-- TERMINAL WINDOW -->
+        <div class="terminal-window">
             <div class="terminal-header">
                 <div class="window-buttons">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span class="btn-dot close"></span>
+                    <span class="btn-dot min"></span>
+                    <span class="btn-dot max"></span>
                 </div>
-                <div class="terminal-title">qodirjon@devops-node:~</div>
+                <div class="terminal-title">root@qodirjon-node:~</div>
             </div>
+
             <div class="terminal-body">
-                <p><span class="prompt">qodirjon@devops:~$</span> <span class="cmd">whoami</span></p>
-                <p class="response">Junior DevOps Engineer driven by automation and infrastructure efficiency.</p>
-                
-                <p><span class="prompt">qodirjon@devops:~$</span> <span class="cmd">neofetch --skills</span></p>
-                <div class="skills-flex">
-                    <span class="tech-tag"><i class="fa-brands fa-linux"></i> Linux (Zsh/Bash)</span>
-                    <span class="tech-tag"><i class="fa-brands fa-docker"></i> Docker</span>
-                    <span class="tech-tag"><i class="fa-solid fa-dharmachakra"></i> Kubernetes</span>
-                    <span class="tech-tag"><i class="fa-solid fa-diagram-project"></i> CI/CD Pipelines</span>
-                    <span class="tech-tag"><i class="fa-solid fa-gears"></i> Ansible</span>
-                    <span class="tech-tag"><i class="fa-brands fa-python"></i> Python</span>
-                    <span class="tech-tag"><i class="fa-solid fa-server"></i> Virtual Machines</span>
-                    <span class="tech-tag"><i class="fa-brands fa-git-alt"></i> Git / GitHub</span>
-                    <span class="tech-tag"><i class="fa-solid fa-network-wired"></i> Nginx</span>
+                <!-- INPUT LINE -->
+                <div class="interactive-line">
+                    <span class="prompt">root#:</span>
+                    <div class="input-wrapper">
+                        <input type="text" id="cmdInput" autofocus placeholder="type 'whoami' to inspect profile..." autocomplete="off" spellcheck="false">
+                    </div>
+                </div>
+
+                <!-- HIDDEN OUTPUT (WHOAMI IS EXECUTED) -->
+                <div id="outputContent" class="output-content hidden">
+                    
+                    <!-- PROFILE HEADER -->
+                    <div class="profile-block">
+                        <div class="avatar-box">
+                            <img src="portfolio me/avatar.jpg" alt="Qodirjon" onerror="this.src='https://ui-avatars.com/api/?name=Qodirjon+Mamatyoqubov&background=1e293b&color=38bdf8&size=150'">
+                        </div>
+                        <div class="profile-details">
+                            <span class="status-pill"><span class="status-dot"></span> System Ready</span>
+                            <h2>Qodirjon Mamatyoqubov</h2>
+                            <p class="role">Junior DevOps Engineer</p>
+                        </div>
+                    </div>
+
+                    <p class="bio">
+                        Specializing in Linux system administration, Docker containerization, CI/CD pipeline automation, and managing scalable infrastructure.
+                    </p>
+
+                    <!-- SOCIAL ICONS -->
+                    <div class="social-links">
+                        <a href="https://github.com/itsqodirjon" target="_blank" class="social-btn" title="GitHub" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/itsqodirjon" target="_blank" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://t.me/itsqodirjon" target="_blank" class="social-btn" title="Telegram" aria-label="Telegram">
+                            <i class="fa-brands fa-telegram"></i>
+                        </a>
+                    </div>
+
+                    <!-- TECHNICAL SKILLS -->
+                    <div class="section-block">
+                        <h3><i class="fa-solid fa-code-branch"></i> Technical Stack</h3>
+                        <div class="skills-grid">
+                            <span><i class="fa-brands fa-linux"></i> Linux / Zsh</span>
+                            <span><i class="fa-brands fa-docker"></i> Docker</span>
+                            <span><i class="fa-solid fa-dharmachakra"></i> Kubernetes</span>
+                            <span><i class="fa-solid fa-diagram-project"></i> CI/CD Pipelines</span>
+                            <span><i class="fa-solid fa-gears"></i> Ansible</span>
+                            <span><i class="fa-brands fa-python"></i> Python</span>
+                            <span><i class="fa-solid fa-server"></i> Virtual Machines</span>
+                            <span><i class="fa-brands fa-git-alt"></i> Git / GitHub</span>
+                            <span><i class="fa-solid fa-network-wired"></i> Nginx</span>
+                        </div>
+                    </div>
+
+                    <!-- EDUCATION & COURSES -->
+                    <div class="section-block">
+                        <h3><i class="fa-solid fa-graduation-cap"></i> Education & Courses</h3>
+                        <div class="cards-list">
+                            <div class="card">
+                                <div>
+                                    <h4>DevOps Engineering Course</h4>
+                                    <p>42.uz Platform</p>
+                                </div>
+                                <span class="badge">Completed</span>
+                            </div>
+                            <div class="card">
+                                <div>
+                                    <h4>DevOps Course</h4>
+                                    <p>Boot.dev Platform</p>
+                                </div>
+                                <span class="badge">Completed</span>
+                            </div>
+                            <div class="card">
+                                <div>
+                                    <h4>Express Backend Course</h4>
+                                    <p>42.uz Platform</p>
+                                </div>
+                                <span class="badge">Completed</span>
+                            </div>
+                            <div class="card">
+                                <div>
+                                    <h4>Secondary Education</h4>
+                                    <p>School №44, Narin District, Namangan Region</p>
+                                </div>
+                                <span class="badge alt">Graduated</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CERTIFICATES -->
+                    <div class="section-block">
+                        <h3><i class="fa-solid fa-certificate"></i> Verified Certificates</h3>
+                        <div class="cards-list">
+                            <div class="card">
+                                <div>
+                                    <h4>DevOps Engineering Foundations</h4>
+                                    <p>42.uz / DevOps Academy</p>
+                                </div>
+                                <span class="date">2026</span>
+                            </div>
+                            <div class="card">
+                                <div>
+                                    <h4>Linux System Administration</h4>
+                                    <p>Linux Foundation</p>
+                                </div>
+                                <span class="date">2026</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </section>
-
-        <!-- EDUCATION & COURSES -->
-        <section class="grid-section">
-            <h2 class="section-heading"><i class="fa-solid fa-graduation-cap"></i> Education & Courses</h2>
-            <div class="cards-wrapper">
-                <div class="dash-card">
-                    <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                    <div class="card-details">
-                        <h3>DevOps Engineering Course</h3>
-                        <p class="institution">42.uz Platform</p>
-                    </div>
-                    <span class="badge-status">Completed</span>
-                </div>
-
-                <div class="dash-card">
-                    <div class="card-icon"><i class="fa-solid fa-terminal"></i></div>
-                    <div class="card-details">
-                        <h3>DevOps Course</h3>
-                        <p class="institution">Boot.dev Platform</p>
-                    </div>
-                    <span class="badge-status">Completed</span>
-                </div>
-
-                <div class="dash-card">
-                    <div class="card-icon"><i class="fa-solid fa-code"></i></div>
-                    <div class="card-details">
-                        <h3>Express Backend Course</h3>
-                        <p class="institution">42.uz Platform</p>
-                    </div>
-                    <span class="badge-status">Completed</span>
-                </div>
-
-                <div class="dash-card">
-                    <div class="card-icon"><i class="fa-solid fa-school"></i></div>
-                    <div class="card-details">
-                        <h3>Secondary Education</h3>
-                        <p class="institution">School №44, Narin District, Namangan Region</p>
-                    </div>
-                    <span class="badge-status alt">Graduated</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- CERTIFICATES -->
-        <section class="grid-section">
-            <h2 class="section-heading"><i class="fa-solid fa-certificate"></i> Verified Certificates</h2>
-            <div class="cards-wrapper">
-                <div class="dash-card">
-                    <div class="card-icon"><i class="fa-solid fa-award"></i></div>
-                    <div class="card-details">
-                        <h3>DevOps Engineering Foundations</h3>
-                        <p class="institution">42.uz / DevOps Academy</p>
-                    </div>
-                    <span class="year-badge">2026</span>
-                </div>
-
-                <div class="dash-card">
-                    <div class="card-icon"><i class="fa-solid fa-award"></i></div>
-                    <div class="card-details">
-                        <h3>Linux System Administration</h3>
-                        <p class="institution">Linux Foundation</p>
-                    </div>
-                    <span class="year-badge">2026</span>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p>© 2026 Qodirjon Mamatyoqubov. All rights reserved.</p>
-        </footer>
+        </div>
     </main>
 
+    <script src="script.js"></script>
 </body>
 </html>
