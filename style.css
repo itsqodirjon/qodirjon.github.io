@@ -4,7 +4,7 @@
     --card-bg: rgba(19, 27, 46, 0.7);
     --border-color: rgba(255, 255, 255, 0.08);
     --accent: #38bdf8;
-    --accent-glow: rgba(56, 189, 248, 0.25);
+    --accent-glow: rgba(56, 189, 248, 0.35);
     --red-prompt: #f43f5e;
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
@@ -322,7 +322,7 @@ body {
     border-color: rgba(56, 189, 248, 0.2);
 }
 
-/* CERTIFICATES BO'LIMI EFFEKTLARI */
+/* CERTIFICATES BO'LIMI */
 .cert-card {
     border-left: 3px solid var(--accent);
 }
@@ -345,6 +345,109 @@ body {
     display: flex;
     align-items: center;
     gap: 6px;
+}
+
+/* MORE TUGMASI DIZAYNI */
+.more-action-box {
+    margin: 32px 0 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.glow-more-btn {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(99, 102, 241, 0.15));
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+}
+
+.glow-more-btn:hover {
+    background: linear-gradient(135deg, var(--accent), #818cf8);
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+}
+
+/* BACK BUTTON */
+.back-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: var(--accent);
+}
+
+/* CONTACT FORM DIZAYNI */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+.send-btn {
+    padding: 12px 20px;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.send-btn:hover {
+    background: #7dd3fc;
+    box-shadow: 0 4px 15px var(--accent-glow);
+    transform: translateY(-2px);
 }
 
 .terminal-footer {
