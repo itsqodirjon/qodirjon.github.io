@@ -32,146 +32,269 @@
                     <div class="interactive-line">
                         <span class="prompt">root#:</span>
                         <div class="input-wrapper">
-                            <input type="text" id="cmdInput" autofocus placeholder="type 'whoami' to inspect profile..." autocomplete="off" spellcheck="false">
+                            <input type="text" id="cmdInput" autofocus placeholder="type 'help', 'whoami' or 'blog'..." autocomplete="off" spellcheck="false">
                         </div>
                     </div>
                 </form>
 
-                <!-- HIDDEN OUTPUT (WHOAMI IS EXECUTED) -->
+                <!-- OUTPUT CONTAINER -->
                 <div id="outputContent" class="output-content hidden">
                     
-                    <!-- PROFILE HEADER -->
-                    <div class="profile-block">
-                        <div class="avatar-box">
-                            <img src="portfolio.me/avatar.jpg" alt="Qodirjon" onerror="this.src='https://ui-avatars.com/api/?name=Qodirjon+Mamatyoqubov&background=1e293b&color=38bdf8&size=150'">
-                        </div>
-                        <div class="profile-details">
-                            <span class="status-pill"><span class="status-dot"></span> System Ready</span>
-                            <h2>Qodirjon Mamatyoqubov</h2>
-                            <p class="role"> DevOps Engineer</p>
-                        </div>
-                    </div>
-
-                    <p class="bio">
-                        Specializing in Linux system administration, Docker containerization, CI/CD pipeline automation, and managing scalable infrastructure.
-                    </p>
-
-                    <!-- SOCIAL ICONS -->
-                    <div class="social-links">
-                        <a href="https://github.com/itsqodirjon" target="_blank" class="social-btn" title="GitHub" aria-label="GitHub">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/itsqodirjon" target="_blank" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://t.me/itsqodirjon" target="_blank" class="social-btn" title="Telegram" aria-label="Telegram">
-                            <i class="fa-brands fa-telegram"></i>
-                        </a>
-                    </div>
-
-                    <!-- TECHNICAL SKILLS -->
-                    <div class="section-block">
-                        <h3><i class="fa-solid fa-code-branch"></i> Technical Stack</h3>
-                        <div class="skills-grid">
-                            <span><i class="fa-brands fa-linux"></i> Linux / Zsh</span>
-                            <span><i class="fa-brands fa-docker"></i> Docker</span>
-                            <span><i class="fa-solid fa-dharmachakra"></i> Kubernetes</span>
-                            <span><i class="fa-solid fa-diagram-project"></i> CI/CD Pipelines</span>
-                            <span><i class="fa-solid fa-gears"></i> Ansible</span>
-                            <span><i class="fa-brands fa-python"></i> Python</span>
-                            <span><i class="fa-solid fa-server"></i> Virtual Machines</span>
-                            <span><i class="fa-brands fa-git-alt"></i> Git / GitHub</span>
-                            <span><i class="fa-solid fa-network-wired"></i> Nginx</span>
-                        </div>
-                    </div>
-
-                    <!-- EDUCATION & COURSES -->
-                    <div class="section-block">
-                        <h3><i class="fa-solid fa-graduation-cap"></i> Education & Courses</h3>
-                        <div class="cards-list">
-                            <div class="card">
-                                <div>
-                                    <h4>DevOps Engineering Course</h4>
-                                    <p>42.uz Platform</p>
-                                </div>
-                                <span class="badge">Completed</span>
+                    <!-- DEFAULT WHOAMI CONTENT -->
+                    <div id="whoamiView">
+                        <!-- PROFILE HEADER -->
+                        <div class="profile-block">
+                            <div class="avatar-box">
+                                <img src="portfolio me/avatar.jpg" alt="Qodirjon" onerror="this.src='https://ui-avatars.com/api/?name=Qodirjon+Mamatyoqubov&background=1e293b&color=38bdf8&size=150'">
                             </div>
-                            <div class="card">
-                                <div>
-                                    <h4>DevOps Course</h4>
-                                    <p>Boot.dev Platform</p>
-                                </div>
-                                <span class="badge">Completed</span>
-                            </div>
-                            <div class="card">
-                                <div>
-                                    <h4>Express Backend Course</h4>
-                                    <p>42.uz Platform</p>
-                                </div>
-                                <span class="badge">Completed</span>
-                            </div>
-                            <div class="card">
-                                <div>
-                                    <h4>Secondary Education</h4>
-                                    <p>School №44, Narin District, Namangan Region</p>
-                                </div>
-                                <span class="badge alt">Graduated</span>
+                            <div class="profile-details">
+                                <span class="status-pill"><span class="status-dot"></span> System Ready</span>
+                                <h2>Qodirjon Mamatyoqubov</h2>
+                                <p class="role">Junior DevOps Engineer</p>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- CERTIFICATES -->
-                    <div class="section-block">
-                        <h3><i class="fa-solid fa-certificate"></i> Verified Certificates</h3>
-                        <div class="cards-list">
-                            <div class="card">
-                                <div>
-                                    <h4>DevOps Engineering Foundations</h4>
-                                    <p>42.uz / DevOps Academy</p>
-                                </div>
-                                <span class="date">2026</span>
-                            </div>
-                            <div class="card">
-                                <div>
-                                    <h4>Linux System Administration</h4>
-                                    <p>Linux Foundation</p>
-                                </div>
-                                <span class="date">2026</span>
+                        <p class="bio">
+                            Specializing in Linux system administration, Docker containerization, CI/CD pipeline automation, and managing scalable infrastructure.
+                        </p>
+
+                        <!-- SOCIAL ICONS -->
+                        <div class="social-links">
+                            <a href="https://github.com/itsqodirjon" target="_blank" class="social-btn" title="GitHub" aria-label="GitHub">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/itsqodirjon" target="_blank" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://t.me/itsqodirjon" target="_blank" class="social-btn" title="Telegram" aria-label="Telegram">
+                                <i class="fa-brands fa-telegram"></i>
+                            </a>
+                        </div>
+
+                        <!-- TECHNICAL SKILLS -->
+                        <div class="section-block">
+                            <h3><i class="fa-solid fa-code-branch"></i> Technical Stack</h3>
+                            <div class="skills-grid">
+                                <span><i class="fa-brands fa-linux"></i> Linux / Zsh</span>
+                                <span><i class="fa-brands fa-docker"></i> Docker</span>
+                                <span><i class="fa-solid fa-dharmachakra"></i> Kubernetes</span>
+                                <span><i class="fa-solid fa-diagram-project"></i> CI/CD Pipelines</span>
+                                <span><i class="fa-solid fa-gears"></i> Ansible</span>
+                                <span><i class="fa-brands fa-python"></i> Python</span>
+                                <span><i class="fa-solid fa-server"></i> Virtual Machines</span>
+                                <span><i class="fa-brands fa-git-alt"></i> Git / GitHub</span>
+                                <span><i class="fa-solid fa-network-wired"></i> Nginx</span>
                             </div>
                         </div>
+
+                        <!-- EDUCATION & COURSES -->
+                        <div class="section-block">
+                            <h3><i class="fa-solid fa-graduation-cap"></i> Education & Courses</h3>
+                            <div class="cards-list">
+                                <div class="card">
+                                    <div>
+                                        <h4>DevOps Engineering Course</h4>
+                                        <p>42.uz Platform</p>
+                                    </div>
+                                    <span class="badge">Completed</span>
+                                </div>
+                                <div class="card">
+                                    <div>
+                                        <h4>DevOps Course</h4>
+                                        <p>Boot.dev Platform</p>
+                                    </div>
+                                    <span class="badge">Completed</span>
+                                </div>
+                                <div class="card">
+                                    <div>
+                                        <h4>Express Backend Course</h4>
+                                        <p>42.uz Platform</p>
+                                    </div>
+                                    <span class="badge">Completed</span>
+                                </div>
+                                <div class="card">
+                                    <div>
+                                        <h4>Secondary Education</h4>
+                                        <p>School №44, Narin District, Namangan Region</p>
+                                    </div>
+                                    <span class="badge alt">Graduated</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CERTIFICATES -->
+                        <div class="section-block">
+                            <h3><i class="fa-solid fa-certificate"></i> Verified Certificates</h3>
+                            <div class="cards-list">
+                                <div class="card">
+                                    <div>
+                                        <h4>DevOps Engineering Foundations</h4>
+                                        <p>42.uz / DevOps Academy</p>
+                                    </div>
+                                    <span class="date">2026</span>
+                                </div>
+                                <div class="card">
+                                    <div>
+                                        <h4>Linux System Administration</h4>
+                                        <p>Linux Foundation</p>
+                                    </div>
+                                    <span class="date">2026</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FOOTER / COPYRIGHT -->
+                        <footer class="terminal-footer">
+                            <p>© 2026 Qodirjon Mamatyoqubov. Built with <i class="fa-solid fa-code"></i> & Linux mindset.</p>
+                        </footer>
                     </div>
 
-                    <!-- FOOTER / COPYRIGHT -->
-                    <footer class="terminal-footer">
-                        <p>© 2026 Qodirjon Mamatyoqubov. Built with <i class="fa-solid fa-code"></i> & Linux mindset.</p>
-                    </footer>
+                    <!-- DYNAMIC BLOG / HELP CONTENT GOES HERE -->
+                    <div id="dynamicView"></div>
 
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- INLINE SCRIPT FOR GUARANTEED EXECUTION -->
+    <!-- TERMINAL CONTROL SCRIPT -->
     <script>
+        // BLOG MAQOLALARI BAZASI
+        const articles = {
+            '1': {
+                title: "Docker Container'larni optimallashtirish usullari",
+                date: "2026-07-20",
+                category: "Docker",
+                content: `Docker image hajmini kamaytirish va xavfsizlikni oshirish bo'yicha maslahatlar:
+
+1. Base Image'ni to'g'ri tanlang:
+   Alpine yoki Distroless image'lar hajmni 10 barobargacha qisqartiradi.
+
+2. Multi-stage Build usulini qo'llang:
+   Faqat kerakli binary fayllarni yakuniy konteynerga ko'chiring.
+
+3. Keraksiz kesh va paketlarni o'chiring:
+   apt-get install bilan birga rm -rf /var/lib/apt/lists/* buyrug'ini bering.
+
+4. .dockerignore faylidan foydalaning:
+   node_modules, .git va vaqtinchalik fayllarni konteynerga kiritmang.`
+            },
+            '2': {
+                title: "DevOps uchun top-5 foydali Zsh va Linux aliaslar",
+                date: "2026-07-15",
+                category: "Linux",
+                content: `Kunda ko'p ishlatiladigan buyruqlarni qisqartirish uchun qulay aliaslar:
+
+- alias gs='git status'
+- alias k='kubectl'
+- alias dps='docker ps --format "table {{.Names}}\\t{{.Status}}"'
+- alias myip='curl ifconfig.me'
+- alias ports='netstat -tulanp'`
+            }
+        };
+
+        const whoamiView = document.getElementById('whoamiView');
+        const dynamicView = document.getElementById('dynamicView');
+        const output = document.getElementById('outputContent');
+        const input = document.getElementById('cmdInput');
+
         function handleCommand(event) {
             event.preventDefault();
-            const input = document.getElementById('cmdInput');
-            const output = document.getElementById('outputContent');
-            const command = input.value.trim().toLowerCase();
+            const rawCommand = input.value.trim().toLowerCase();
+            const args = rawCommand.split(' ');
+            const command = args[0];
 
             if (command === 'whoami') {
-                input.value = 'whoami';
-                input.disabled = true;
-                output.classList.remove('hidden');
-                output.classList.add('show');
+                dynamicView.innerHTML = '';
+                whoamiView.style.display = 'block';
+                showContainer();
+            } else if (command === 'help') {
+                whoamiView.style.display = 'none';
+                renderHelp();
+                showContainer();
+            } else if (command === 'blog' || command === 'articles') {
+                whoamiView.style.display = 'none';
+                renderBlogList();
+                showContainer();
+            } else if (command === 'cat' && args[1]) {
+                whoamiView.style.display = 'none';
+                renderArticle(args[1]);
+                showContainer();
             } else if (command === 'clear') {
                 output.classList.remove('show');
                 output.classList.add('hidden');
-                input.value = '';
-                input.disabled = false;
-            } else {
-                alert("Command not found. Please type 'whoami'");
+                whoamiView.style.display = 'block';
+                dynamicView.innerHTML = '';
+            } else if (rawCommand !== '') {
+                whoamiView.style.display = 'none';
+                renderError(rawCommand);
+                showContainer();
             }
+
+            input.value = '';
+        }
+
+        function showContainer() {
+            output.classList.remove('hidden');
+            output.classList.add('show');
+        }
+
+        function renderHelp() {
+            dynamicView.innerHTML = `
+                <div class="terminal-block">
+                    <h3><i class="fa-solid fa-terminal"></i> Mavjud buyruqlar:</h3>
+                    <ul class="help-list">
+                        <li><b class="cmd">whoami</b> - Qodirjon haqidagi to'liq ma'lumot va ko'nikmalar</li>
+                        <li><b class="cmd">blog</b> - Texnik maqolalar va DevOps qaydlar ro'yxati</li>
+                        <li><b class="cmd">cat [id]</b> - Maqolani o'qish (Masalan: <code>cat 1</code>)</li>
+                        <li><b class="cmd">clear</b> - Terminal ekranini tozalash</li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        function renderBlogList() {
+            let listHTML = `<div class="section-block">
+                <h3><i class="fa-solid fa-newspaper"></i> Texnik Maqolalar & Qaydlar</h3>
+                <div class="cards-list">`;
+            
+            for (let id in articles) {
+                listHTML += `
+                    <div class="card" onclick="document.getElementById('cmdInput').value='cat ${id}';">
+                        <div>
+                            <h4>[ID: ${id}] ${articles[id].title}</h4>
+                            <p>${articles[id].category} • ${articles[id].date}</p>
+                        </div>
+                        <span class="badge alt">cat ${id}</span>
+                    </div>
+                `;
+            }
+            
+            listHTML += `</div><p class="hint-text">Maqolani o'qish uchun <code>cat 1</code> buyrug'ini kiriting.</p></div>`;
+            dynamicView.innerHTML = listHTML;
+        }
+
+        function renderArticle(id) {
+            if (articles[id]) {
+                const article = articles[id];
+                dynamicView.innerHTML = `
+                    <div class="article-view">
+                        <h2>${article.title}</h2>
+                        <div class="article-meta">
+                            <span><i class="fa-solid fa-folder"></i> ${article.category}</span>
+                            <span><i class="fa-solid fa-calendar"></i> ${article.date}</span>
+                        </div>
+                        <hr class="divider">
+                        <pre class="article-body">${article.content}</pre>
+                    </div>
+                `;
+            } else {
+                dynamicView.innerHTML = `<p class="error-text">xatolik: '${id}' id'li maqola topilmadi. Mavjud maqolalarni ko'rish uchun 'blog' deb yozing.</p>`;
+            }
+        }
+
+        function renderError(cmd) {
+            dynamicView.innerHTML = `<p class="error-text">zsh: command not found: ${cmd}. Yordam uchun 'help' deb yozing.</p>`;
         }
     </script>
 </body>
