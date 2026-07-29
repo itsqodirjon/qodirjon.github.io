@@ -1,61 +1,125 @@
-function renderConnectForm() {
-    dynamicView.innerHTML = `
-        <div class="article-view">
-            <h2><i class="fa-solid fa-paper-plane"></i> Men bilan bog'lanish (Direct Mail)</h2>
-            <p class="hint-text" style="margin-bottom: 18px;">Xabaringiz to'g'ridan-to'g'ri mening shaxsiy elektron pochtamga yetib boradi.</p>
-            
-            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="connect-form" onsubmit="handleMailSubmit(event)">
-                <div class="form-group">
-                    <label><i class="fa-regular fa-user"></i> Ismingiz:</label>
-                    <input type="text" name="name" required placeholder="Masalan: Ali Valiyev" class="form-input">
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qodirjon Mamatyoqubov | DevOps Terminal</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <main class="terminal-container">
+        <!-- TERMINAL WINDOW -->
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="window-buttons">
+                    <span class="btn-dot close"></span>
+                    <span class="btn-dot min"></span>
+                    <span class="btn-dot max"></span>
                 </div>
-                <div class="form-group">
-                    <label><i class="fa-regular fa-envelope"></i> Email manzilingiz:</label>
-                    <input type="email" name="email" required placeholder="ali@example.com" class="form-input">
+                <div class="terminal-title">root@qodirjon-node:~</div>
+            </div>
+
+            <div class="terminal-body">
+                <!-- INPUT LINE -->
+                <form id="terminalForm" onsubmit="handleCommand(event)">
+                    <div class="interactive-line">
+                        <span class="prompt">root#:</span>
+                        <div class="input-wrapper">
+                            <input type="text" id="cmdInput" autofocus placeholder="type 'help', 'whoami', 'blog' or 'connect'..." autocomplete="off" spellcheck="false">
+                        </div>
+                    </div>
+                </form>
+
+                <!-- OUTPUT CONTAINER -->
+                <div id="outputContent" class="output-content hidden">
+                    
+                    <!-- WHOAMI DEFAULT VIEW -->
+                    <div id="whoamiView">
+                        <div class="profile-block">
+                            <div class="avatar-box">
+                                <img src="portfolio me/avatar.jpg" alt="Qodirjon" onerror="this.src='https://ui-avatars.com/api/?name=Qodirjon+Mamatyoqubov&background=1e293b&color=38bdf8&size=150'">
+                            </div>
+                            <div class="profile-details">
+                                <span class="status-pill"><span class="status-dot"></span> System Ready</span>
+                                <h2>Qodirjon Mamatyoqubov</h2>
+                                <p class="role">Junior DevOps Engineer</p>
+                            </div>
+                        </div>
+
+                        <p class="bio">
+                            Linux infratuzilmalari, Docker konteynerizatsiyasi, CI/CD avtomatlashtirish va server boshqaruvi bilan shug'ullanaman.
+                        </p>
+
+                        <!-- SOCIAL LINKS -->
+                        <div class="social-links">
+                            <a href="https://github.com/itsqodirjon" target="_blank" class="social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://linkedin.com/in/itsqodirjon" target="_blank" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://t.me/itsqodirjon" target="_blank" class="social-btn" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        </div>
+
+                        <!-- STACK -->
+                        <div class="section-block">
+                            <h3><i class="fa-solid fa-code-branch"></i> Technical Stack</h3>
+                            <div class="skills-grid">
+                                <span><i class="fa-brands fa-linux"></i> Linux / Zsh</span>
+                                <span><i class="fa-brands fa-docker"></i> Docker</span>
+                                <span><i class="fa-solid fa-dharmachakra"></i> Kubernetes</span>
+                                <span><i class="fa-solid fa-diagram-project"></i> CI/CD Pipelines</span>
+                                <span><i class="fa-solid fa-gears"></i> Ansible</span>
+                                <span><i class="fa-brands fa-python"></i> Python</span>
+                                <span><i class="fa-solid fa-server"></i> Nginx & VM</span>
+                                <span><i class="fa-brands fa-git-alt"></i> Git / GitHub</span>
+                            </div>
+                        </div>
+
+                        <!-- EDUCATION & COURSES -->
+                        <div class="section-block">
+                            <h3><i class="fa-solid fa-graduation-cap"></i> Ta'lim va Kurslar</h3>
+                            <div class="cards-list">
+                                <div class="card">
+                                    <div>
+                                        <h4>DevOps Engineering Course</h4>
+                                        <p>42.uz Platformasi</p>
+                                    </div>
+                                    <span class="badge">Tugallangan</span>
+                                </div>
+                                <div class="card">
+                                    <div>
+                                        <h4>DevOps Course</h4>
+                                        <p>Boot.dev Platformasi</p>
+                                    </div>
+                                    <span class="badge">Tugallangan</span>
+                                </div>
+                                <div class="card">
+                                    <div>
+                                        <h4>O'rta maxsus ta'lim</h4>
+                                        <p>44-sonli maktab, Narin tumani</p>
+                                    </div>
+                                    <span class="badge alt">Bitirgan</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <footer class="terminal-footer">
+                            <p>© 2026 Qodirjon Mamatyoqubov. Built with <i class="fa-solid fa-code"></i> & Linux mindset.</p>
+                        </footer>
+                    </div>
+
+                    <!-- DYNAMIC VIEW -->
+                    <div id="dynamicView"></div>
+
                 </div>
-                <div class="form-group">
-                    <label><i class="fa-regular fa-comment-dots"></i> Xabar:</label>
-                    <textarea name="message" rows="4" required placeholder="Xabaringizni shu yerda yozing..." class="form-input"></textarea>
-                </div>
-                <button type="submit" id="submitBtn" class="submit-btn">
-                    <i class="fa-solid fa-paper-plane"></i> Xabarni yuborish
-                </button>
-            </form>
-            <!-- Xabar yuborilganidan keyin chiquvchi joy -->
-            <div id="formStatus" class="form-status-box"></div>
+            </div>
         </div>
-    `;
-}
+    </main>
 
-function handleMailSubmit(e) {
-    e.preventDefault();
-    const form = e.target;
-    const status = document.getElementById('formStatus');
-    const btn = document.getElementById('submitBtn');
-
-    // Tugmani yuklanish holatiga o'tkazish
-    btn.disabled = true;
-    btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Yuborilmoqda...`;
-    status.style.display = 'none';
-
-    fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-    }).then(response => {
-        if (response.ok) {
-            status.innerHTML = `<div class="status-success"><i class="fa-solid fa-circle-check"></i> Xabar muvaffaqiyatli yuborildi! Tez orada javob beraman.</div>`;
-            status.style.display = 'block';
-            form.reset();
-        } else {
-            status.innerHTML = `<div class="status-error"><i class="fa-solid fa-triangle-exclamation"></i> Xatolik yuz berdi. Qayta urinib ko'ring.</div>`;
-            status.style.display = 'block';
-        }
-    }).catch(() => {
-        status.innerHTML = `<div class="status-error"><i class="fa-solid fa-wifi"></i> Tarmoqda xatolik. Internetni tekshiring.</div>`;
-        status.style.display = 'block';
-    }).finally(() => {
-        btn.disabled = false;
-        btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Xabarni yuborish`;
-    });
-}
+    <script src="script.js"></script>
+</body>
+</html>
