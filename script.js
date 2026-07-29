@@ -1,4 +1,3 @@
-// O'z mualliflik cheat-sheet va eslatmalaringiz (kurs/platforma ma'lumotlarisiz)
 const articles = {
     '1': {
         title: "Linux fayl tizimi va ruxsatlar bilan ishlash",
@@ -41,7 +40,6 @@ Nano (Oddiy tahrirlash uchun):
         category: "Automation",
         content: `Rutin vazifalarni avtomatlashtirish uchun yozgan Bash skriptlarim standarti:
 
- Shebang liniyasi:
 #!/bin/bash
 
 # O'zgaruvchilar va Shartlar
@@ -72,13 +70,13 @@ done`
     '5': {
         title: "HTTP protokol, Headerlar va API So'rovlari",
         category: "Web",
-        content: `Web-server va API integratsiyalarini sotzlashda HTTP so'rovlar bilan ishlash:
+        content: `Web-server va API integratsiyalarini sozlashda HTTP so'rovlar bilan ishlash:
 
 Curl orqali API test qilish:
 - GET so'rovi:
   curl -s https://api.example.com/health | jq
 
-- POST so me'yoriy so'rovi (JSON yuborish):
+- POST so'rovi (JSON yuborish):
   curl -X POST https://api.example.com/v1/auth \
     -H "Content-Type: application/json" \
     -d '{"username": "admin", "key": "secret"}'
@@ -136,7 +134,7 @@ function handleCommand(event) {
         whoamiView.style.display = 'none';
         renderArticle(args[1]);
         showContainer();
-    } else if (command === 'connect' || command === 'contact' || command === 'support') {
+    } else if (command === 'connect' || command === 'contact') {
         whoamiView.style.display = 'none';
         renderConnectForm();
         showContainer();
@@ -200,7 +198,7 @@ function renderArticle(id) {
         const article = articles[id];
         dynamicView.innerHTML = `
             <div class="article-view">
-                <h2>${article.title}</h2>
+                2>${article.title}</h2>
                 <div class="article-meta">
                     <span><i class="fa-solid fa-tag"></i> ${article.category}</span>
                 </div>
@@ -220,18 +218,13 @@ function renderConnectForm() {
             <p class="hint-text" style="margin-bottom: 18px;">Xabaringiz to'g'ridan-to'g'ri mening shaxsiy elektron pochtamga yetib boradi.</p>
             
             <form id="contactForm" class="connect-form" onsubmit="handleMailSubmit(event)">
-                <!-- Web3Forms Bepul API Kaliti (mamatyoqubov0@gmail.com uchun) -->
-                <input type="hidden" name="access_key" value="ee331ca8-a620-410d-83b6-14e392d4ef0a">
-                <input type="hidden" name="subject" value="Portfolio orqali yangi xabar!">
-                <input type="checkbox" name="botcheck" class="hidden-bot" style="display: none;">
-
                 <div class="form-group">
                     <label><i class="fa-regular fa-user"></i> Ismingiz:</label>
                     <input type="text" name="name" required placeholder="Masalan: Ali Valiyev" class="form-input">
                 </div>
                 <div class="form-group">
                     <label><i class="fa-regular fa-envelope"></i> Email manzilingiz:</label>
-                    <input type="email" name="email" required placeholder="ali@example.com" class="form-input">
+                    <input type="email" name="email" required placeholder="mamatyoqubov0@gmail.com" class="form-input">
                 </div>
                 <div class="form-group">
                     <label><i class="fa-regular fa-comment-dots"></i> Xabar:</label>
@@ -246,6 +239,7 @@ function renderConnectForm() {
     `;
 }
 
+// FORMSPREE DIRECT AJAX INTEGRATSIYA (Xatoliklar bartaraf etildi)
 function handleMailSubmit(e) {
     e.preventDefault();
     const form = document.getElementById('contactForm');
@@ -257,34 +251,34 @@ function handleMailSubmit(e) {
     status.style.display = 'none';
 
     const formData = new FormData(form);
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
 
-    fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
+    // Formspree AJAX Endpoint
+    fetch("https://formspree.io/f/mqakozqj", {
+        method: "POST",
+        body: formData,
         headers: {
-            'Content-Type': 'application/json',
             'Accept': 'application/json'
-        },
-        body: json
-    })
-    .then(async (response) => {
-        let res = await response.json();
-        if (response.status == 200) {
-            status.innerHTML = `<div class="status-success"><i class="fa-solid fa-circle-check"></i> Xabar muvaffaqiyatli yuborildi! Tez orada javob beraman.</div>`;
+        }
+    }).then(response => {
+        if (response.ok) {
+            status.innerHTML = `<div class="status-success"><i class="fa-solid fa-circle-check"></i> Xabaringiz muvaffaqiyatli yuborildi!</div>`;
             status.style.display = 'block';
             form.reset();
         } else {
-            status.innerHTML = `<div class="status-error"><i class="fa-solid fa-triangle-exclamation"></i> ${res.message || 'Xatolik yuz berdi.'}</div>`;
-            status.style.display = 'block';
+            response.json().then(data => {
+                status.innerHTML = `<div class="status-error"><i class="fa-solid fa-triangle-exclamation"></i> Xatolik yuz berdi. Iltimos qayta urinib ko'ring.</div>`;
+                status.style.display = 'block';
+            });
         }
-    })
-    .catch(error => {
-        status.innerHTML = `<div class="status-error"><i class="fa-solid fa-wifi"></i> Tarmoqda xatolik yuz berdi. Internet ulanishini tekshiring.</div>`;
+    }).catch(error => {
+        status.innerHTML = `<div class="status-error"><i class="fa-solid fa-wifi"></i> Tarmoq xatosi! Internet ulanishingizni tekshiring.</div>`;
         status.style.display = 'block';
-    })
-    .then(() => {
+    }).then(() => {
         btn.disabled = false;
         btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Xabarni yuborish`;
     });
+}
+
+function renderError(cmd) {
+    dynamicView.innerHTML = `<p class="error-text">zsh: command not found: ${cmd}. Yo'riqnoma uchun 'help' deb yozing.</p>`;
 }
