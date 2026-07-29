@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qodirjon Mamatyoqubov | DevOps Terminal</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts: Ubuntu Mono -->
+    <!-- Google Fonts: Ubuntu Mono & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
                     <div class="interactive-line">
                         <span class="prompt">root#:</span>
                         <div class="input-wrapper">
-                            <input type="text" id="cmdInput" autofocus placeholder="type 'whoami' or 'clear'..." autocomplete="off" spellcheck="false">
+                            <input type="text" id="cmdInput" autofocus placeholder="type 'whoami', 'more' or 'clear'..." autocomplete="off" spellcheck="false">
                         </div>
                     </div>
                 </form>
@@ -148,12 +148,20 @@
                             </div>
                         </div>
 
+                        <!-- JOZIBALI MORE TUGMASI -->
+                        <div class="more-action-box">
+                            <button id="moreBtn" class="glow-more-btn" onclick="openMoreView()">
+                                <span>MORE / BATAFSIL</span>
+                                <i class="fa-solid fa-angles-down"></i>
+                            </button>
+                        </div>
+
                         <footer class="terminal-footer">
                             <p>© 2026 Qodirjon Mamatyoqubov. Built with <i class="fa-solid fa-code"></i> & Linux mindset.</p>
                         </footer>
                     </div>
 
-                    <!-- DYNAMIC VIEW -->
+                    <!-- DYNAMIC VIEW FOR MORE CONTENT -->
                     <div id="dynamicView"></div>
 
                 </div>
