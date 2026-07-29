@@ -32,7 +32,7 @@
                     <div class="interactive-line">
                         <span class="prompt">root#:</span>
                         <div class="input-wrapper">
-                            <input type="text" id="cmdInput" autofocus placeholder="type 'help', 'whoami' or 'blog'..." autocomplete="off" spellcheck="false">
+                            <input type="text" id="cmdInput" autofocus placeholder="type 'help', 'whoami', 'blog' or 'connect'..." autocomplete="off" spellcheck="false">
                         </div>
                     </div>
                 </form>
@@ -45,7 +45,7 @@
                         <!-- PROFILE HEADER -->
                         <div class="profile-block">
                             <div class="avatar-box">
-                                <img src="portfolio.me/avatar.jpg" alt="Qodirjon" onerror="this.src='https://ui-avatars.com/api/?name=Qodirjon+Mamatyoqubov&background=1e293b&color=38bdf8&size=150'">
+                                <img src="portfolio me/avatar.jpg" alt="Qodirjon" onerror="this.src='https://ui-avatars.com/api/?name=Qodirjon+Mamatyoqubov&background=1e293b&color=38bdf8&size=150'">
                             </div>
                             <div class="profile-details">
                                 <span class="status-pill"><span class="status-dot"></span> System Ready</span>
@@ -149,7 +149,7 @@
                         </footer>
                     </div>
 
-                    <!-- DYNAMIC BLOG / HELP CONTENT GOES HERE -->
+                    <!-- DYNAMIC BLOG / HELP / CONNECT CONTENT GOES HERE -->
                     <div id="dynamicView"></div>
 
                 </div>
@@ -159,37 +159,98 @@
 
     <!-- TERMINAL CONTROL SCRIPT -->
     <script>
-        // BLOG MAQOLALARI BAZASI
+        // RASMDAGI 6 TA MAVZU BO'YICHA BLOG MAQOLALARI
         const articles = {
             '1': {
-                title: "Docker Container'larni optimallashtirish usullari",
-                date: "2026-07-20",
-                category: "Docker",
-                content: `Docker image hajmini kamaytirish va xavfsizlikni oshirish bo'yicha maslahatlar:
+                title: "Linux asoslari",
+                level: "Boshlang'ich",
+                meta: "12 ta dars • ~4 soat",
+                category: "Linux",
+                content: `Fayl tizimida harakatlaning, fayllarni o'qing va ruxsatlarni shell orqali boshqaring.
 
-1. Base Image'ni to'g'ri tanlang:
-   Alpine yoki Distroless image'lar hajmni 10 barobargacha qisqartiradi.
-
-2. Multi-stage Build usulini qo'llang:
-   Faqat kerakli binary fayllarni yakuniy konteynerga ko'chiring.
-
-3. Keraksiz kesh va paketlarni o'chiring:
-   apt-get install bilan birga rm -rf /var/lib/apt/lists/* buyrug'ini bering.
-
-4. .dockerignore faylidan foydalaning:
-   node_modules, .git va vaqtinchalik fayllarni konteynerga kiritmang.`
+Asosiy buyruqlar:
+- ls -la (barcha fayl va ruxsatlarni ko'rish)
+- cd /var/www (kataloglarga o'tish)
+- chmod 755 / chmod +x (ruxsatlarni o'zgartirish)
+- chown user:group (fayl egaligini o'zgartirish)
+- cat, head, tail -f (fayl kontentini o'qish va real-time kuzatish)`
             },
             '2': {
-                title: "DevOps uchun top-5 foydali Zsh va Linux aliaslar",
-                date: "2026-07-15",
-                category: "Linux",
-                content: `Kunda ko'p ishlatiladigan buyruqlarni qisqartirish uchun qulay aliaslar:
+                title: "Terminal muharrirlari (Vim / Nano)",
+                level: "Boshlang'ich",
+                meta: "6 ta dars • ~3 soat",
+                category: "Editor",
+                content: `Server ichida fayl tahrirlash - nano bilan tez boshlang, vim bilan tezlashing.
 
-- alias gs='git status'
-- alias k='kubectl'
-- alias dps='docker ps --format "table {{.Names}}\\t{{.Status}}"'
-- alias myip='curl ifconfig.me'
-- alias ports='netstat -tulanp'`
+Vim bo'yicha cheat-sheet:
+- i -> Tahrirlash rejimiga o'tish (Insert)
+- Esc -> Buyruq rejimiga qaytish
+- :w -> Saqlash
+- :q! -> Saqlamasdan chiqish
+- :wq -> Saqlab chiqish
+- dd -> Qatorni o'chirish`
+            },
+            '3': {
+                title: "Bash asoslari",
+                level: "Boshlang'ich",
+                meta: "10 ta dars • ~3 soat",
+                category: "Bash",
+                content: `O'zgaruvchilar, sikllar, shartlar va haqiqiy ishni avtomatlashtiradigan skriptlar.
+
+Asosiy struktura:
+#!/bin/bash
+NAME="Qodirjon"
+if [ "$NAME" == "Qodirjon" ]; then
+    echo "Welcome DevOps Engineer!"
+fi
+
+# Sikllar:
+for server in web db app; do
+    echo "Checking $server..."
+done`
+            },
+            '4': {
+                title: "Tarmoq asoslari",
+                level: "O'rtacha",
+                meta: "10 ta dars • ~4 soat",
+                category: "Networking",
+                content: `Interfeyslar, DNS, portlar va paketlar - tarmoqni professionaldek tuzating.
+
+Diagnostika buyruqlari:
+- ip a / ifconfig (IP manzillarni ko'rish)
+- netstat -tulanp / ss -tulpn (Ochiq portlarni tekshirish)
+- ping -c 4 google.com (Ulanishni tekshirish)
+- traceroute / tracepath (Paketlar yo'nalishini kuzatish)
+- nslookup / dig (DNS yozuvlarini tekshirish)`
+            },
+            '5': {
+                title: "HTTP asoslari",
+                level: "Boshlang'ich",
+                meta: "7 ta dars • ~3 soat",
+                category: "HTTP/Web",
+                content: `Web qanday gaplashadi: curl bilan so'rov, status kodlar, headerlar, JSON va REST.
+
+Curl misollari va Status Kodlar:
+- curl -I https://api.site.com (Header-larni tekshirish)
+- curl -X POST -H "Content-Type: application/json" -d '{"key":"value"}' URL
+
+Statuslar:
+- 200 OK | 201 Created
+- 400 Bad Request | 401 Unauthorized | 404 Not Found
+- 500 Internal Server Error | 502 Bad Gateway`
+            },
+            '6': {
+                title: "SSH asoslari",
+                level: "Boshlang'ich",
+                meta: "7 ta dars • ~3 soat",
+                category: "Security/SSH",
+                content: `Masofadagi serverga xavfsiz ulanish: parollardan kalitlargacha, scp dan ssh config gacha.
+
+Amaliyat:
+- ssh-keygen -t ed25519 -C "your_email" (Kalit yaratish)
+- ssh-copy-id user@server_ip (Serverga public key yuklash)
+- scp file.txt user@server_ip:/var/www/ (Fayl ko'chirish)
+- ~/.ssh/config fayli orqali aliaslar sozlash`
             }
         };
 
@@ -220,6 +281,10 @@
                 whoamiView.style.display = 'none';
                 renderArticle(args[1]);
                 showContainer();
+            } else if (command === 'connect' || command === 'contact' || command === 'support') {
+                whoamiView.style.display = 'none';
+                renderConnectForm();
+                showContainer();
             } else if (command === 'clear') {
                 output.classList.remove('show');
                 output.classList.add('hidden');
@@ -245,8 +310,9 @@
                     <h3><i class="fa-solid fa-terminal"></i> Mavjud buyruqlar:</h3>
                     <ul class="help-list">
                         <li><b class="cmd">whoami</b> - Qodirjon haqidagi to'liq ma'lumot va ko'nikmalar</li>
-                        <li><b class="cmd">blog</b> - Texnik maqolalar va DevOps qaydlar ro'yxati</li>
+                        <li><b class="cmd">blog</b> - Texnik darsliklar va Linux/DevOps qo'llanmalari</li>
                         <li><b class="cmd">cat [id]</b> - Maqolani o'qish (Masalan: <code>cat 1</code>)</li>
+                        <li><b class="cmd">connect</b> - Qodirjon bilan e-mail orqali bog'lanish forma interfeysi</li>
                         <li><b class="cmd">clear</b> - Terminal ekranini tozalash</li>
                     </ul>
                 </div>
@@ -255,7 +321,7 @@
 
         function renderBlogList() {
             let listHTML = `<div class="section-block">
-                <h3><i class="fa-solid fa-newspaper"></i> Texnik Maqolalar & Qaydlar</h3>
+                <h3><i class="fa-solid fa-book"></i> DevOps & Linux Qo'llanmalari</h3>
                 <div class="cards-list">`;
             
             for (let id in articles) {
@@ -263,14 +329,14 @@
                     <div class="card" onclick="document.getElementById('cmdInput').value='cat ${id}';">
                         <div>
                             <h4>[ID: ${id}] ${articles[id].title}</h4>
-                            <p>${articles[id].category} • ${articles[id].date}</p>
+                            <p>${articles[id].category} • ${articles[id].meta}</p>
                         </div>
-                        <span class="badge alt">cat ${id}</span>
+                        <span class="badge alt">${articles[id].level}</span>
                     </div>
                 `;
             }
             
-            listHTML += `</div><p class="hint-text">Maqolani o'qish uchun <code>cat 1</code> buyrug'ini kiriting.</p></div>`;
+            listHTML += `</div><p class="hint-text">Mavzuni to'liq o'qish uchun <code>cat [id]</code> buyrug'ini kiriting (Masalan: <code>cat 1</code>).</p></div>`;
             dynamicView.innerHTML = listHTML;
         }
 
@@ -279,18 +345,71 @@
                 const article = articles[id];
                 dynamicView.innerHTML = `
                     <div class="article-view">
-                        <h2>${article.title}</h2>
+                        <h2>${article.title} <span class="badge alt">${article.level}</span></h2>
                         <div class="article-meta">
                             <span><i class="fa-solid fa-folder"></i> ${article.category}</span>
-                            <span><i class="fa-solid fa-calendar"></i> ${article.date}</span>
+                            <span><i class="fa-solid fa-clock"></i> ${article.meta}</span>
                         </div>
                         <hr class="divider">
                         <pre class="article-body">${article.content}</pre>
                     </div>
                 `;
             } else {
-                dynamicView.innerHTML = `<p class="error-text">xatolik: '${id}' id'li maqola topilmadi. Mavjud maqolalarni ko'rish uchun 'blog' deb yozing.</p>`;
+                dynamicView.innerHTML = `<p class="error-text">xatolik: '${id}' id'li mavzu topilmadi. Mavjud mavzularni ko'rish uchun 'blog' deb yozing.</p>`;
             }
+        }
+
+        function renderConnectForm() {
+            // E-mail ga xabar jo'natish uchun Formspree usuli
+            dynamicView.innerHTML = `
+                <div class="article-view">
+                    <h2><i class="fa-solid fa-paper-plane"></i> Men bilan bog'lanish (Direct Mail)</h2>
+                    <p class="hint-text" style="margin-bottom: 15px;">Xabaringiz to'g'ridan-to'g'ri mening shaxsiy elektron pochtamga yetib boradi.</p>
+                    
+                    <form action="https://formspree.io/f/mgogqwqv" method="POST" class="connect-form" onsubmit="handleMailSubmit(event)">
+                        <div class="form-group">
+                            <label>Ismingiz:</label>
+                            <input type="text" name="name" required placeholder="Masalan: Ali Valiyev" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Email manzilingiz:</label>
+                            <input type="email" name="email" required placeholder="ali@example.com" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Xabar:</label>
+                            <textarea name="message" rows="4" required placeholder="Xabaringizni shu yerda yozing..." class="form-input"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> Xabarni yuborish</button>
+                    </form>
+                    <div id="formStatus" style="margin-top: 10px;"></div>
+                </div>
+            `;
+        }
+
+        function handleMailSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const status = document.getElementById('formStatus');
+            const data = new FormData(form);
+
+            status.innerHTML = "<p style='color: var(--accent); font-family: var(--font-mono);'>Yuborilmoqda...</p>";
+
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    status.innerHTML = "<p style='color: #10b981; font-family: var(--font-mono);'>✓ Xabar muvaffaqiyatli pochtamga yuborildi! Tez orada javob beraman.</p>";
+                    form.reset();
+                } else {
+                    status.innerHTML = "<p style='color: var(--red-prompt); font-family: var(--font-mono);'>Xatolik yuz berdi. Iltimos qaytadan urinib ko'ring.</p>";
+                }
+            }).catch(error => {
+                status.innerHTML = "<p style='color: var(--red-prompt); font-family: var(--font-mono);'>Xatolik yuz berdi. Tarmoqni tekshiring.</p>";
+            });
         }
 
         function renderError(cmd) {
