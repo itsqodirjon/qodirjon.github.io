@@ -1,26 +1,51 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const input = document.getElementById('cmdInput');
-    const output = document.getElementById('outputContent');
+/* Placeholder matnlarini tiniqlashtirish */
+.form-input::placeholder {
+    color: rgba(148, 163, 184, 0.6) !important;
+}
 
-    input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            const command = input.value.trim().toLowerCase();
+/* Status bildirishnoma qutisi */
+.form-status-box {
+    display: none;
+    margin-top: 18px;
+}
 
-            if (command === 'whoami') {
-                // Inputni o'qib bo'lingach muzlatib qo'yamiz va tayyorlaymiz
-                input.value = 'whoami';
-                input.disabled = true;
-                
-                // Sekin va ohistalik bilan ma'lumotlarni ko'rsatamiz
-                output.classList.remove('hidden');
-                output.classList.add('show');
-            } else if (command === 'clear') {
-                output.classList.remove('show');
-                output.classList.add('hidden');
-                input.value = '';
-            } else {
-                alert("Buyruq topilmadi. Iltimos 'whoami' deb yozing.");
-            }
-        }
-    });
-});
+.status-success {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #10b981;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: smoothFadeUp 0.4s ease;
+}
+
+.status-error {
+    background: rgba(244, 63, 94, 0.12);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    color: #f43f5e;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: smoothFadeUp 0.4s ease;
+}
+
+/* Formagacha ikonkalarga rang berish */
+.form-group label i {
+    color: var(--accent);
+    margin-right: 4px;
+}
+
+/* Tugma bosilganda o'chishi */
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
