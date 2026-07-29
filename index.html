@@ -15,7 +15,6 @@
 <body>
 
     <main class="terminal-container">
-        <!-- TERMINAL WINDOW -->
         <div class="terminal-window">
             <div class="terminal-header">
                 <div class="window-buttons">
@@ -27,7 +26,6 @@
             </div>
 
             <div class="terminal-body">
-                <!-- INPUT LINE -->
                 <form id="terminalForm" onsubmit="handleCommand(event)">
                     <div class="interactive-line">
                         <span class="prompt">root#:</span>
@@ -37,10 +35,9 @@
                     </div>
                 </form>
 
-                <!-- OUTPUT CONTAINER -->
                 <div id="outputContent" class="output-content hidden">
                     
-                    <!-- WHOAMI DEFAULT VIEW -->
+                    <!-- WHOAMI MAIN VIEW -->
                     <div id="whoamiView">
                         <div class="profile-block">
                             <div class="avatar-box">
@@ -79,7 +76,28 @@
                             </div>
                         </div>
 
-                        <!-- EDUCATION & COURSES -->
+                        <!-- SERTIFIKATLAR BO'LIMI (QAYTARILDI) -->
+                        <div class="section-block">
+                            <h3><i class="fa-solid fa-certificate"></i> Sertifikatlar</h3>
+                            <div class="cards-list">
+                                <div class="card" onclick="window.open('https://boot.dev', '_blank')">
+                                    <div>
+                                        <h4>Learn Linux Course Certificate</h4>
+                                        <p>Boot.dev Platformasi</p>
+                                    </div>
+                                    <span class="badge alt">Tekshirish <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                                </div>
+                                <div class="card" onclick="window.open('https://boot.dev', '_blank')">
+                                    <div>
+                                        <h4>Learn Git & GitHub Certificate</h4>
+                                        <p>Boot.dev Platformasi</p>
+                                    </div>
+                                    <span class="badge alt">Tekshirish <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TA'LIM -->
                         <div class="section-block">
                             <h3><i class="fa-solid fa-graduation-cap"></i> Ta'lim va Kurslar</h3>
                             <div class="cards-list">
