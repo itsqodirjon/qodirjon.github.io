@@ -390,6 +390,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -450,9 +451,76 @@ body {
     margin: 0 2px;
 }
 
-/* ==========================================
-   RESPONSIVE DESIGN (MOBIL VA TABLET)
-   ========================================== */
+/* BLOG VA HELP BO'LIMLARI UCHUN YANGI STILLAR */
+.help-list {
+    list-style: none;
+    padding: 10px 0;
+    font-family: var(--font-mono);
+}
+
+.help-list li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.help-list .cmd {
+    color: var(--accent);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.hint-text {
+    margin-top: 14px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.article-view {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.article-view h2 {
+    font-size: 1.25rem;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+.article-meta {
+    display: flex;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 14px;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin-bottom: 14px;
+}
+
+.article-body {
+    font-family: var(--font-mono);
+    font-size: 0.92rem;
+    color: var(--text-main);
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+.error-text {
+    color: var(--red-prompt);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE DESIGN (MOBIL VA TABLET) */
 @media (max-width: 576px) {
     body {
         padding: 16px 10px;
@@ -466,7 +534,6 @@ body {
         font-size: 0.8rem;
     }
 
-    /* Profil qismini ustma-ust qilish */
     .profile-block {
         flex-direction: column;
         align-items: flex-start;
@@ -478,7 +545,6 @@ body {
         height: 70px;
     }
 
-    /* Karta (Card) bloklarini vertikal joylash */
     .card {
         flex-direction: column;
         align-items: flex-start;
@@ -489,7 +555,6 @@ body {
         align-self: flex-start;
     }
 
-    /* Skill tugmalarini mobilga moslash */
     .skills-grid span {
         font-size: 0.85rem;
         padding: 6px 12px;
