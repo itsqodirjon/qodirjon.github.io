@@ -51,45 +51,92 @@ function renderMoreContent() {
     dynamicView.innerHTML = `
         <div class="more-content-wrapper">
             <button class="back-btn" onclick="showWhoami()">
-                <i class="fa-solid fa-arrow-left"></i> Orqaga (whoami)
+                <i class="fa-solid fa-terminal"></i> Orqaga (whoami)
             </button>
 
-            <!-- BLOG / ARTICLES -->
+            <!-- 6 TA TEXNIK MAQOLALAR -->
             <div class="section-block">
-                <h3><i class="fa-solid fa-newspaper"></i> Texnik Maqolalar & Blog</h3>
-                <div class="cards-list">
-                    <div class="card blog-card">
-                        <div>
-                            <h4>Linux Serverlarni CI/CD va Docker orqali Avtomatlashtirish</h4>
-                            <p>DevOps amaliyotida loyihalarni uzluksiz deploy qilish bo'yicha qo'llanma.</p>
+                <h3><i class="fa-solid fa-newspaper"></i> Texnik Maqolalar & Ma'lumotlar</h3>
+                <div class="articles-grid">
+                    
+                    <div class="article-card">
+                        <div class="article-header">
+                            <h4>1. Linux Serverlarni CI/CD va Docker orqali Avtomatlashtirish</h4>
+                            <span class="read-tag">DevOps</span>
                         </div>
-                        <span class="badge alt">Read</span>
+                        <p class="article-desc">
+                            Zamonaviy loyihalarni Production serverlarga GitHub Actions va Docker yordamida uzluksiz, xatosiz va xavfsiz deploy qilish bosqichlari hamda amaliy tajribalar.
+                        </p>
                     </div>
-                    <div class="card blog-card">
-                        <div>
-                            <h4>Zsh va Terminalni Samadorlik Uchun Sozlash</h4>
-                            <p>DevOps muhandisi kunlik ish tajribasini oshiruvchi plagin va buyruqlar.</p>
+
+                    <div class="article-card">
+                        <div class="article-header">
+                            <h4>2. Zsh va Terminal Muhitini Unumdorlik Uchun Sozlash</h4>
+                            <span class="read-tag">Linux</span>
                         </div>
-                        <span class="badge alt">Read</span>
+                        <p class="article-desc">
+                            Oh My Zsh, Oh-My-Posh hamda foydali buyruq alias'lari orqali DevOps muhandisining kunlik terminal ish faoliyati tezligini 2 baravarga oshirish usullari.
+                        </p>
                     </div>
+
+                    <div class="article-card">
+                        <div class="article-header">
+                            <h4>3. Nginx Reverse Proxy va SSL Sertifikatlari Boshqaruvi</h4>
+                            <span class="read-tag">Web Server</span>
+                        </div>
+                        <p class="article-desc">
+                            Nginx yordamida web-so'rovlarni to'g'ri yo'naltirish, Certbot orqali tezsus HTTPS/SSL xavfsizlik sertifikatlarini avtomatik yangilab turish konfiguratsiyasi.
+                        </p>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-header">
+                            <h4>4. Docker Optimization va Multi-stage Build Usullari</h4>
+                            <span class="read-tag">Docker</span>
+                        </div>
+                        <p class="article-desc">
+                            Konteyner rasmlari (Image) hajmini minimal darajagacha qisqartirish, build vaqtini tezlashtirish va Production xavfsizligini ta'minlash sirlari.
+                        </p>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-header">
+                            <h4>5. Ansible Bilan Serverlarni Avtomatik Konfiguratsiya Qilish</h4>
+                            <span class="read-tag">IaC</span>
+                        </div>
+                        <p class="article-desc">
+                            O'nlarcha Linux serverlarga bir vaqtning o'zida dasturiy ta'minotlarni o'rnatish, sozlamalarni yangilash va Playbook'lar yordamida infratuzilmani boshqarish.
+                        </p>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-header">
+                            <h4>6. Kubernetes Asoslari: Pod, Service va Deployment Arxitekturasi</h4>
+                            <span class="read-tag">K8s</span>
+                        </div>
+                        <p class="article-desc">
+                            Konteynerlashtirilgan ilovalarni avtomatik masshtablash (Scaling), resurslarni to'g'ri taqsimlash va yuqori barqarorlikni (High Availability) ta'minlash.
+                        </p>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- CONNECT / CONTACT FORM -->
+            <!-- BOG'LANISH FORMASI (SIZNIG FORMSPREE ID: mjgnzvve KO'RSATILGAN) -->
             <div class="section-block">
                 <h3><i class="fa-solid fa-paper-plane"></i> Bog'lanish / Connection</h3>
-                <form class="contact-form" action="https://formspree.io/f/xknkyrvw" method="POST">
+                <form class="contact-form" action="https://formspree.io/f/mjgnzvve" method="POST">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Ismingiz" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Email manzilingiz" required>
+                        <input type="email" name="_replyto" placeholder="Email manzilingiz" required>
                     </div>
                     <div class="form-group">
-                        <textarea name="message" rows="4" placeholder="Xabaringizni yozing..." required></textarea>
+                        <textarea name="message" rows="4" placeholder="Xabaringizni shu yerga yozing..." required></textarea>
                     </div>
                     <button type="submit" class="send-btn">
-                        <span>Xabarni yuborish</span>
+                        <span>Xabarni Yuborish</span>
                         <i class="fa-solid fa-paper-plane"></i>
                     </button>
                 </form>
@@ -99,5 +146,5 @@ function renderMoreContent() {
 }
 
 function renderError(cmd) {
-    dynamicView.innerHTML = `<p class="error-text">zsh: command not found: ${cmd}. Faqat 'whoami', 'more' yoki 'clear' deb yozing.</p>`;
+    dynamicView.innerHTML = `<p class="error-text">zsh: command not found: ${cmd}. Yo'riqnoma: faqat 'whoami' yoki 'clear' buyrug'idan foydalaning.</p>`;
 }
