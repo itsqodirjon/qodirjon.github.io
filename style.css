@@ -37,7 +37,6 @@ body {
     max-width: 700px;
 }
 
-/* TERMINAL WINDOW & GLOW EFFECTS */
 .terminal-window {
     background: var(--term-bg);
     backdrop-filter: blur(16px);
@@ -71,14 +70,10 @@ body {
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    transition: transform 0.2s ease, opacity 0.2s ease;
 }
-.btn-dot:hover {
-    transform: scale(1.2);
-}
-.close { background: #f43f5e; box-shadow: 0 0 8px rgba(244, 63, 94, 0.4); }
-.min { background: #f59e0b; box-shadow: 0 0 8px rgba(245, 158, 11, 0.4); }
-.max { background: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
+.close { background: #f43f5e; }
+.min { background: #f59e0b; }
+.max { background: #10b981; }
 
 .terminal-title {
     position: absolute;
@@ -87,14 +82,12 @@ body {
     font-family: var(--font-mono);
     font-size: 0.95rem;
     color: var(--text-muted);
-    letter-spacing: 0.5px;
 }
 
 .terminal-body {
     padding: 24px;
 }
 
-/* INTERACTIVE INPUT LINE */
 .interactive-line {
     display: flex;
     align-items: center;
@@ -106,13 +99,6 @@ body {
 .prompt {
     color: var(--red-prompt);
     font-weight: 700;
-    text-shadow: 0 0 10px rgba(244, 63, 94, 0.5);
-    animation: promptPulse 2s infinite ease-in-out;
-}
-
-@keyframes promptPulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
 }
 
 .input-wrapper {
@@ -128,17 +114,14 @@ body {
     font-family: var(--font-mono);
     font-size: 1.2rem;
     font-weight: 700;
-    caret-color: var(--accent);
-    text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
 }
 
 #cmdInput::placeholder {
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.25);
     font-weight: 400;
     font-style: italic;
 }
 
-/* OUTPUT CONTENT CONTAINER */
 .output-content.hidden {
     display: none;
 }
@@ -150,60 +133,6 @@ body {
     border-top: 1px dashed var(--border-color);
 }
 
-/* SEQUENTIAL FADE-IN ANIMATION (5 SEKUNDLIK) */
-.output-content.show > * {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: smoothFadeUp 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* CHIQISH KECHIKISHI (STAGGER DELAY) */
-.output-content.show .profile-block { 
-    animation-delay: 0.1s; 
-}
-
-.output-content.show .bio { 
-    animation-delay: 0.7s; 
-}
-
-.output-content.show .social-links { 
-    animation-delay: 1.3s; 
-}
-
-/* Technical Stack (Skill-lar) */
-.output-content.show .section-block:nth-child(4) { 
-    animation-delay: 2.0s; 
-}
-
-/* Education & Courses */
-.output-content.show .section-block:nth-child(5) { 
-    animation-delay: 2.7s; 
-}
-
-/* Certificates */
-.output-content.show .section-block:nth-child(6) { 
-    animation-delay: 3.4s; 
-}
-
-/* Footer / Copyright */
-.output-content.show .terminal-footer { 
-    animation-delay: 3.8s; 
-}
-
-@keyframes smoothFadeUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-        filter: blur(4px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
-}
-
-/* PROFILE BLOCK & AVATAR GLOW */
 .profile-block {
     display: flex;
     align-items: center;
@@ -217,14 +146,7 @@ body {
     border-radius: 50%;
     padding: 2px;
     background: linear-gradient(135deg, var(--accent), #818cf8);
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
     flex-shrink: 0;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.avatar-box:hover {
-    transform: scale(1.05) rotate(3deg);
-    box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
 }
 
 .avatar-box img {
@@ -237,14 +159,12 @@ body {
 .profile-details h2 {
     font-size: 1.4rem;
     font-weight: 700;
-    letter-spacing: -0.01em;
 }
 
 .profile-details .role {
     color: var(--accent);
     font-family: var(--font-mono);
     font-size: 1.05rem;
-    margin-top: 2px;
 }
 
 .status-pill {
@@ -266,7 +186,6 @@ body {
     height: 6px;
     background: #10b981;
     border-radius: 50%;
-    box-shadow: 0 0 8px #10b981;
 }
 
 .bio {
@@ -276,7 +195,6 @@ body {
     margin-bottom: 22px;
 }
 
-/* HIGH-QUALITY SOCIAL BUTTON HOVER EFFECTS */
 .social-links {
     display: flex;
     gap: 14px;
@@ -295,39 +213,17 @@ body {
     justify-content: center;
     font-size: 1.25rem;
     text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.social-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-    transition: left 0.5s ease;
-}
-
-.social-btn:hover::before {
-    left: 100%;
+    transition: all 0.3s ease;
 }
 
 .social-btn:hover {
     color: #000;
     background: var(--accent);
     border-color: var(--accent);
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 25px var(--accent-glow);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px var(--accent-glow);
 }
 
-.social-btn:active {
-    transform: translateY(-2px) scale(0.98);
-}
-
-/* SECTION BLOCKS & CARDS */
 .section-block {
     margin-bottom: 26px;
 }
@@ -362,14 +258,6 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: all 0.3s ease;
-}
-
-.skills-grid span:hover {
-    border-color: var(--accent);
-    background: rgba(56, 189, 248, 0.08);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
 }
 
 .skills-grid i {
@@ -391,14 +279,13 @@ body {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.3s ease;
 }
 
 .card:hover {
     border-color: rgba(56, 189, 248, 0.4);
     background: rgba(255, 255, 255, 0.03);
     transform: translateX(6px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card h4 {
@@ -429,13 +316,6 @@ body {
     border-color: rgba(56, 189, 248, 0.2);
 }
 
-.date {
-    font-size: 0.9rem;
-    font-family: var(--font-mono);
-    color: var(--text-muted);
-}
-
-/* TERMINAL FOOTER STILI */
 .terminal-footer {
     margin-top: 30px;
     padding-top: 16px;
@@ -446,12 +326,6 @@ body {
     color: var(--text-muted);
 }
 
-.terminal-footer i {
-    color: var(--accent);
-    margin: 0 2px;
-}
-
-/* BLOG VA HELP BO'LIMLARI STILI */
 .help-list {
     list-style: none;
     padding: 10px 0;
@@ -486,21 +360,16 @@ body {
 }
 
 .article-view h2 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     color: var(--text-main);
     margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .article-meta {
-    display: flex;
-    gap: 16px;
     font-family: var(--font-mono);
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     color: var(--accent);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .divider {
@@ -520,15 +389,14 @@ body {
 .error-text {
     color: var(--red-prompt);
     font-family: var(--font-mono);
-    font-size: 0.9rem;
 }
 
-/* CONNECT / ALOQA FORMASI ZAMONAVIY STILI */
+/* FORM STYLES */
 .connect-form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
-    margin-top: 18px;
+    gap: 16px;
+    margin-top: 16px;
 }
 
 .form-group {
@@ -544,9 +412,13 @@ body {
     font-weight: 600;
 }
 
+.form-group label i {
+    margin-right: 4px;
+}
+
 .form-input {
     width: 100%;
-    background: rgba(13, 18, 29, 0.8);
+    background: rgba(13, 18, 29, 0.9);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 12px 14px;
@@ -560,12 +432,10 @@ body {
 .form-input:focus {
     border-color: var(--accent);
     box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
-    background: rgba(13, 18, 29, 0.95);
 }
 
 .form-input::placeholder {
-    color: rgba(148, 163, 184, 0.4);
-    font-family: var(--font-mono);
+    color: rgba(148, 163, 184, 0.5);
 }
 
 textarea.form-input {
@@ -583,77 +453,26 @@ textarea.form-input {
     font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     transition: all 0.3s ease;
-    margin-top: 6px;
 }
 
 .submit-btn:hover {
     background: #7dd3fc;
     box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
-    transform: translateY(-2px);
 }
 
-.submit-btn:active {
-    transform: translateY(0);
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
-/* RESPONSIVE DESIGN (MOBIL VA TABLET) */
-@media (max-width: 576px) {
-    body {
-        padding: 16px 10px;
-    }
-
-    .terminal-body {
-        padding: 16px;
-    }
-
-    .terminal-title {
-        font-size: 0.8rem;
-    }
-
-    .profile-block {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-
-    .avatar-box {
-        width: 70px;
-        height: 70px;
-    }
-
-    .card {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-
-    .card .badge, .card .date {
-        align-self: flex-start;
-    }
-
-    .skills-grid span {
-        font-size: 0.85rem;
-        padding: 6px 12px;
-    }
-
-    #cmdInput {
-        font-size: 1rem;
-    }
-}
-/* Placeholder matnlarini tiniqlashtirish */
-.form-input::placeholder {
-    color: rgba(148, 163, 184, 0.6) !important;
-}
-
-/* Status bildirishnoma qutisi */
 .form-status-box {
     display: none;
-    margin-top: 18px;
+    margin-top: 16px;
 }
 
 .status-success {
@@ -667,7 +486,6 @@ textarea.form-input {
     display: flex;
     align-items: center;
     gap: 10px;
-    animation: smoothFadeUp 0.4s ease;
 }
 
 .status-error {
@@ -681,18 +499,4 @@ textarea.form-input {
     display: flex;
     align-items: center;
     gap: 10px;
-    animation: smoothFadeUp 0.4s ease;
-}
-
-/* Formagacha ikonkalarga rang berish */
-.form-group label i {
-    color: var(--accent);
-    margin-right: 4px;
-}
-
-/* Tugma bosilganda o'chishi */
-.submit-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none !important;
 }
