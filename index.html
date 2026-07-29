@@ -359,32 +359,67 @@ Amaliyat:
             }
         }
 
-        function renderConnectForm() {
-            // E-mail ga xabar jo'natish uchun Formspree usuli
-            dynamicView.innerHTML = `
-                <div class="article-view">
-                    <h2><i class="fa-solid fa-paper-plane"></i> Men bilan bog'lanish (Direct Mail)</h2>
-                    <p class="hint-text" style="margin-bottom: 15px;">Xabaringiz to'g'ridan-to'g'ri mening shaxsiy elektron pochtamga yetib boradi.</p>
-                    
-                    <form action="https://formspree.io/f/mgogqwqv" method="POST" class="connect-form" onsubmit="handleMailSubmit(event)">
-                        <div class="form-group">
-                            <label>Ismingiz:</label>
-                            <input type="text" name="name" required placeholder="Masalan: Ali Valiyev" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label>Email manzilingiz:</label>
-                            <input type="email" name="email" required placeholder="ali@example.com" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label>Xabar:</label>
-                            <textarea name="message" rows="4" required placeholder="Xabaringizni shu yerda yozing..." class="form-input"></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> Xabarni yuborish</button>
-                    </form>
-                    <div id="formStatus" style="margin-top: 10px;"></div>
+      function renderConnectForm() {
+    dynamicView.innerHTML = `
+        <div class="article-view">
+            <h2><i class="fa-solid fa-paper-plane"></i> Men bilan bog'lanish (Direct Mail)</h2>
+            <p class="hint-text" style="margin-bottom: 18px;">Xabaringiz to'g'ridan-to'g'ri mening shaxsiy elektron pochtamga yetib boradi.</p>
+            
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="connect-form" onsubmit="handleMailSubmit(event)">
+                <div class="form-group">
+                    <label><i class="fa-regular fa-user"></i> Ismingiz:</label>
+                    <input type="text" name="name" required placeholder="Masalan: Ali Valiyev" class="form-input">
                 </div>
-            `;
+                <div class="form-group">
+                    <label><i class="fa-regular fa-envelope"></i> Email manzilingiz:</label>
+                    <input type="email" name="email" required placeholder="ali@example.com" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label><i class="fa-regular fa-comment-dots"></i> Xabar:</label>
+                    <textarea name="message" rows="4" required placeholder="Xabaringizni shu yerda yozing..." class="form-input"></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="submit-btn">
+                    <i class="fa-solid fa-paper-plane"></i> Xabarni yuborish
+                </button>
+            </form>
+            <!-- Xabar yuborilganidan keyin chiquvchi joy -->
+            <div id="formStatus" class="form-status-box"></div>
+        </div>
+    `;
+}
+
+function handleMailSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const status = document.getElementById('formStatus');
+    const btn = document.getElementById('submitBtn');
+
+    // Tugmani yuklanish holatiga o'tkazish
+    btn.disabled = true;
+    btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Yuborilmoqda...`;
+    status.style.display = 'none';
+
+    fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+    }).then(response => {
+        if (response.ok) {
+            status.innerHTML = `<div class="status-success"><i class="fa-solid fa-circle-check"></i> Xabar muvaffaqiyatli yuborildi! Tez orada javob beraman.</div>`;
+            status.style.display = 'block';
+            form.reset();
+        } else {
+            status.innerHTML = `<div class="status-error"><i class="fa-solid fa-triangle-exclamation"></i> Xatolik yuz berdi. Qayta urinib ko'ring.</div>`;
+            status.style.display = 'block';
         }
+    }).catch(() => {
+        status.innerHTML = `<div class="status-error"><i class="fa-solid fa-wifi"></i> Tarmoqda xatolik. Internetni tekshiring.</div>`;
+        status.style.display = 'block';
+    }).finally(() => {
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Xabarni yuborish`;
+    });
+}
 
         function handleMailSubmit(e) {
             e.preventDefault();
