@@ -264,6 +264,7 @@ body {
     border-color: rgba(56, 189, 248, 0.4);
     background: rgba(255, 255, 255, 0.03);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
 }
 
 .skills-grid i {
@@ -321,6 +322,31 @@ body {
     border-color: rgba(56, 189, 248, 0.2);
 }
 
+/* CERTIFICATES BO'LIMI EFFEKTLARI */
+.cert-card {
+    border-left: 3px solid var(--accent);
+}
+
+.cert-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cert-icon {
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+.cert-badge {
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 .terminal-footer {
     margin-top: 30px;
     padding-top: 16px;
@@ -329,25 +355,6 @@ body {
     font-family: var(--font-mono);
     font-size: 0.88rem;
     color: var(--text-muted);
-}
-
-.help-list {
-    list-style: none;
-    padding: 10px 0;
-    font-family: var(--font-mono);
-}
-
-.help-list li {
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-    color: var(--text-muted);
-}
-
-.help-list .cmd {
-    color: var(--accent);
-    background: rgba(56, 189, 248, 0.1);
-    padding: 2px 6px;
-    border-radius: 4px;
 }
 
 .error-text {
